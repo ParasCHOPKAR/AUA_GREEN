@@ -340,7 +340,7 @@
       </div>
       <div class="nav-elem"><a href="#">SERVICES</a></div>
       <div class="nav-elem"><a href="#">OUR WORK</a></div>
-      <div class="nav-elem"><a href="#">CONTACT</a></div>
+      <div class="nav-elem"><a href="contact.html">CONTACT</a></div>
     </div>
     <button onclick="location.href='#'">Get More Details</button>
 
@@ -377,7 +377,7 @@
 
     <a href="#">SERVICES</a>
     <a href="#">OUR WORK</a>
-    <a href="#">CONTACT</a>
+    <a href="contact.html">CONTACT</a>
     <a href="#">Get More Details</a>
   </div>
 
@@ -436,16 +436,15 @@
 </style>
 
 
-
 <!-- About Us Section -->
-<section id="about-us" style="background:#000; color:#fff; font-family:'Poppins', sans-serif; padding:100px 20px; overflow:hidden;">
+<section id="about-us" style="background:linear-gradient(135deg, #f9f9f9, #fff); color:#333; font-family:'Poppins', sans-serif; padding:100px 20px; overflow:hidden; margin-top: 40px;">
   <div style="max-width:1200px; margin:auto; text-align:center;">
 
     <!-- Section Title -->
     <h2 style="font-size:3rem; font-weight:700; color:#f15a29; margin-bottom:20px; animation: slideIn 1s ease-out;">
       About Us
     </h2>
-    <p style="font-size:1.1rem; line-height:1.8; color:#ddd; max-width:1000px; margin:auto; margin-bottom:60px; animation: slideIn 1.2s ease-out;">
+    <p style="font-size:1.1rem; line-height:1.8; color:#444; max-width:1000px; margin:auto; margin-bottom:60px; animation: slideIn 1.2s ease-out;">
       At <strong>Aquagreen Tech Solutions</strong>, we are committed to making a positive impact on the environment by providing <span style="color:#07d67a;">innovative and sustainable solutions</span> in water treatment, waste water treatment, energy management, water audits, industrial fabrication, and water treatment chemicals.  
       <br><br>
       With our slogan <strong style="color:#07d67a;">“Reduce • Recycle • Reuse”</strong>, we promote responsible and eco-friendly practices to safeguard natural resources for future generations.
@@ -476,7 +475,7 @@
 
     <!-- Why Choose Us -->
     <h3 style="font-size:2.5rem; color:#f15a29; margin-bottom:40px; animation: slideIn 1s ease-out;">Why Choose Us?</h3>
-<ul style="list-style:none; max-width:900px; margin:auto; padding:0; font-size:1.1rem; line-height:1.8; color:#ddd; text-align:center; display:flex; flex-direction:column; gap:10px; align-items:center;">
+<ul style="list-style:none; max-width:900px; margin:auto; padding:0; font-size:1.1rem; line-height:1.8; color:#444; text-align:center; display:flex; flex-direction:column; gap:10px; align-items:center;">
   <li style="display:flex; align-items:flex-start; gap:8px; max-width:700px; text-align:left;">
     <span style="color:#07d67a; font-weight:bold;">✔</span>
     <span><strong style="color:#07d67a;">Expertise & Experience:</strong> Decades of proven knowledge in water & energy.</span>
@@ -501,7 +500,7 @@
 
 
     <!-- Closing Statement -->
-    <p style="margin-top:60px; font-size:1.2rem; color:#fff; animation: slideIn 1.3s ease-out;">
+    <p style="margin-top:60px; font-size:1.2rem; color:#333; animation: slideIn 1.3s ease-out;">
       🌍 Together with <strong>Aquagreen Tech Solutions</strong>, let's protect our planet.  
       Join us on the journey towards a <span style="color:#07d67a;">greener, sustainable future</span>.  
       <br><br>
@@ -518,7 +517,7 @@
     padding: 30px;
     border-radius: 16px;
     color: #fff;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
     animation: fadeUp 0.9s ease-out forwards;
   }
@@ -529,16 +528,17 @@
   }
   .card:hover {
     transform: translateY(-10px) scale(1.03);
-    box-shadow: 0 12px 30px rgba(7,214,122,0.5);
+    box-shadow: 0 12px 30px rgba(7,214,122,0.3);
   }
 
   .service-card {
-    background: #111;
+    background: #fff;
     padding: 25px;
     border-radius: 14px;
-    border: 1px solid rgba(255,255,255,0.08);
+    border: 1px solid rgba(0,0,0,0.08);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
     animation: fadeUp 1s ease-out forwards;
+    color: #333;
   }
   .service-card h4 {
     color: #07d67a;
@@ -547,7 +547,7 @@
   }
   .service-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 25px rgba(0,188,212,0.4);
+    box-shadow: 0 10px 25px rgba(0,188,212,0.2);
   }
 
   /* New Animation */
@@ -563,11 +563,11 @@
   }
 </style>
 
+
 <!-- Add this inside <head> -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
-
-<section id="certificates" style="background:#000; color:#fff; font-family:'Poppins', sans-serif; padding:100px 20px; text-align:center;">
+<section id="certificates" style="background:linear-gradient(135deg,#f9f9f9,#fff); color:#000; font-family:'Poppins', sans-serif; padding:100px 20px; text-align:center;">
   <div style="max-width:1200px; margin:auto;">
     
     <!-- Section Title -->
@@ -580,28 +580,29 @@
 
       <!-- Certificate 1 -->
       <a href="images/CERTIFICATE_01.png" data-lightbox="certificates" data-title="Certificate of Excellence"
-         style="background:#111; border-radius:16px; overflow:hidden; transition:transform 0.3s, box-shadow 0.3s; display:block; text-decoration:none;">
+         style="background:#fff; border-radius:16px; overflow:hidden; transition:transform 0.3s, box-shadow 0.3s; display:block; text-decoration:none; box-shadow:0 4px 10px rgba(0,0,0,0.08);">
           <img src="images/CERTIFICATE_01.png" alt="Certificate 1" style="width:100%; height:200px; object-fit:cover; display:block;">
-          <p style="padding:15px; color:#ddd; font-size:1rem;">Certificate of Excellence</p>
+          <p style="padding:15px; color:#333; font-size:1rem;">Certificate of Excellence</p>
       </a>
 
       <!-- Certificate 2 -->
       <a href="images/CERTIFICATE_02.png" data-lightbox="certificates" data-title="ISO Certification"
-         style="background:#111; border-radius:16px; overflow:hidden; transition:transform 0.3s, box-shadow 0.3s; display:block; text-decoration:none;">
+         style="background:#fff; border-radius:16px; overflow:hidden; transition:transform 0.3s, box-shadow 0.3s; display:block; text-decoration:none; box-shadow:0 4px 10px rgba(0,0,0,0.08);">
           <img src="images/CERTIFICATE_02.png" alt="Certificate 2" style="width:100%; height:200px; object-fit:cover; display:block;">
-          <p style="padding:15px; color:#ddd; font-size:1rem;">ISO Certification</p>
+          <p style="padding:15px; color:#333; font-size:1rem;">ISO Certification</p>
       </a>
 
       <!-- Certificate 3 -->
       <a href="images/CERTIFICATE_03.png" data-lightbox="certificates" data-title="Authorized Dealer Certificate"
-         style="background:#111; border-radius:16px; overflow:hidden; transition:transform 0.3s, box-shadow 0.3s; display:block; text-decoration:none;">
+         style="background:#fff; border-radius:16px; overflow:hidden; transition:transform 0.3s, box-shadow 0.3s; display:block; text-decoration:none; box-shadow:0 4px 10px rgba(0,0,0,0.08);">
           <img src="images/CERTIFICATE_03.png" alt="Certificate 3" style="width:100%; height:200px; object-fit:cover; display:block;">
-          <p style="padding:15px; color:#ddd; font-size:1rem;">Authorized Dealer Certificate</p>
+          <p style="padding:15px; color:#333; font-size:1rem;">Authorized Dealer Certificate</p>
       </a>
 
     </div>
   </div>
 </section>
+
 
 <script>
   // Lightbox basic options
