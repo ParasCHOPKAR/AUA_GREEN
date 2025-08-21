@@ -1,4 +1,5 @@
 <!-- background: linear-gradient(135deg, #f9f9f9, #fff); -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,346 +13,528 @@
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
 
+
+<section id="loader" style="position:fixed; top:0; left:0; width:100%; height:100vh; background:#e0f7fa; display:flex; justify-content:center; align-items:center; z-index:9999; overflow:hidden; font-family:'Poppins', sans-serif; flex-direction:column; text-align:center; padding:20px;">
+
+  <!-- Logo -->
+  <img src="images/LOGO_02.png" alt="AQUA Green Logo" class="loader-logo" style="max-width:300px; margin-bottom:20px; animation:logoBounce 1.5s ease-out forwards;" />
+
+  <!-- Slogan -->
+  <h1 style="font-size:32px; color:#00796b; font-weight:700; margin-bottom:15px; animation:fadeInUp 1.5s ease-out 0.5s forwards; opacity:0;">
+    Pure Water Solutions for a Greener Tomorrow
+  </h1>
+
+  <!-- Description -->
+<p style="max-width:700px; color:#004d40; font-size:20px; line-height:1.6; margin:10px auto 0; opacity:0; animation:fadeInUp 1.5s ease-out 1s forwards;">
+  AGTS provides sustainable solutions in water treatment and eco-friendly practices to safeguard natural resources. <strong>“Reduce. Recycle. Reuse.”</strong>
+</p>
+
+  <!-- Optional Sound Effect -->
+  <audio id="loaderSound" src="sounds/water_whoosh.mp3" preload="auto"></audio>
+
+  <!-- Styles -->
   <style>
-    /* ================= GLOBAL RESET ================= */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes logoBounce {
+      0% { transform: scale(0.6); opacity:0; }
+      70% { transform: scale(1.1); opacity:1; }
+      100% { transform: scale(1); }
     }
 
-    html,
-    body {
-      height: 100%;
-      width: 100%;
-      scroll-behavior: smooth;
-      font-family: 'Poppins', sans-serif;
-      background: #000;
-      color: #fff;
-    }
-
-    /* ================= NAVBAR ================= */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 12vh;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.5vh 8vw;
-      background: black;
-      backdrop-filter: blur(18px) saturate(180%);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      z-index: 1000;
-      transition: all 0.4s ease;
-    }
-
-    nav.scrolled {
-      background: rgba(10, 10, 10, 0.9);
-      height: 10vh;
-      padding: 1vh 6vw;
-      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(25px) saturate(200%);
-    }
-
-    nav .logo img {
-      height: 100px;
-      transition: 0.3s;
-    }
-
-    nav .logo img:hover {
-      transform: scale(1.08) rotate(-3deg);
-      filter: drop-shadow(0 0 12px rgba(7, 214, 122, 0.7));
-    }
-
-    .nav-part2 {
-      display: flex;
-      gap: 2.8vw;
-      align-items: center;
-    }
-
-    .nav-elem {
-      position: relative;
-    }
-
-    .nav-elem a {
-      font-size: clamp(12px, 0.9vw, 15px);
-      text-transform: uppercase;
-      font-weight: 600;
-      letter-spacing: 1.5px;
-      cursor: pointer;
-      transition: 0.3s;
-      position: relative;
-      color: #fff;
-      text-decoration: none;
-    }
-
-    .nav-elem a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -6px;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(90deg, #0BA34E, #07d67a);
-      transition: 0.4s;
-    }
-
-    .nav-elem a:hover {
-      color: #07d67a;
-      text-shadow: 0 0 10px rgba(7, 214, 122, 0.6);
-    }
-
-    .nav-elem a:hover::after {
-      width: 100%;
-    }
-
-    /* ================= DROPDOWN ================= */
-    .dropdown {
-      position: absolute;
-      top: 120%;
-      left: 0;
-      min-width: 260px;
-      background: rgba(25, 25, 25, 0.9);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(15px);
-      transition: all 0.35s ease;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(25px) saturate(180%);
-    }
-
-    .dropdown li {
-      list-style: none;
-    }
-
-    .dropdown li a {
-      display: block;
-      padding: 14px 22px;
-      font-size: clamp(12px, 0.9vw, 15px);
-      font-weight: 500;
-      color: #ccc;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .dropdown li a:hover {
-      background: linear-gradient(90deg, #0BA34E, #07d67a);
-      color: #fff;
-      padding-left: 28px;
-    }
-
-    .nav-elem:hover .dropdown {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-
-    /* ================= CTA BUTTON ================= */
-    nav button {
-      background: linear-gradient(135deg, #0BA34E, #07d67a);
-      color: #fff;
-      padding: 12px 28px;
-      font-size: clamp(12px, 0.85vw, 15px);
-      text-transform: uppercase;
-      font-weight: 700;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      transition: 0.35s;
-      box-shadow: 0 4px 14px rgba(11, 163, 78, 0.5);
-    }
-
-    nav button::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: rgba(255, 255, 255, 0.3);
-      transform: skewX(-25deg);
-      transition: left 0.4s ease;
-    }
-
-    nav button:hover::before {
-      left: 100%;
-    }
-
-    nav button:hover {
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 10px 25px rgba(11, 163, 78, 0.7);
-    }
-
-  
-
-    /* ===== HAMBURGER ICON (only mobile) ===== */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      z-index: 1100;
-    }
-
-    .hamburger span {
-      width: 28px;
-      height: 3px;
-      background: #fff;
-      border-radius: 3px;
-      transition: 0.3s;
-    }
-
-    /* ===== SIDEBAR ===== */
-    .sidebar {
-      position: fixed;
-      top: 0;
-      right: -280px;
-      width: 260px;
-      height: 100%;
-      background: rgba(15, 15, 15, 0.97);
-      backdrop-filter: blur(20px);
-      box-shadow: -4px 0 20px rgba(0, 0, 0, 0.6);
-      padding: 25px 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      transition: right 0.35s ease;
-      z-index: 2000;
-    }
-
-    .sidebar.active {
-      right: 0;
-    }
-
-    .sidebar .close-btn {
-      font-size: 2rem;
-      color: #fff;
-      cursor: pointer;
-      align-self: flex-end;
-      margin-bottom: 20px;
-    }
-
-    .sidebar a {
-      text-decoration: none;
-      color: #fff;
-      font-size: 1.1rem;
-      font-weight: 500;
-      padding: 10px 0;
-      display: block;
-      transition: 0.3s;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .sidebar a:hover {
-      color: #07d67a;
-      padding-left: 6px;
-    }
-
-    /* ===== SIDEBAR DROPDOWN ===== */
-    .sidebar .dropdown-btn {
-      font-size: 1.1rem;
-      font-weight: 500;
-      color: #fff;
-      cursor: pointer;
-      padding: 10px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: 0.3s;
-    }
-
-    .sidebar .dropdown-btn:hover {
-      color: #07d67a;
-      padding-left: 6px;
-    }
-
-    .sidebar .dropdown-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.35s ease, padding 0.3s ease;
-      padding-left: 12px;
-      padding-top: 0;
-      padding-bottom: 0;
-    }
-
-    .sidebar .dropdown.open .dropdown-content {
-      max-height: 500px;
-      padding-top: 8px;
-      padding-bottom: 8px;
-    }
-
-    .sidebar .dropdown-btn span {
-      transition: transform 0.3s ease;
-    }
-
-    .sidebar .dropdown.open .dropdown-btn span {
-      transform: rotate(180deg);
-    }
-
-    .sidebar .dropdown-content a {
-      font-size: 0.95rem;
-      color: #ccc;
-      padding: 8px 0;
-      display: block;
-      transition: 0.3s;
-    }
-
-    .sidebar .dropdown-content a:hover {
-      color: #07d67a;
-      padding-left: 16px;
-    }
-
-    /* ===== MOBILE RESPONSIVE ===== */
     @media (max-width: 768px) {
-
-      nav .nav-part2,
-      nav button {
-        display: none;
-      }
-
-      .hamburger {
-        display: flex;
-      }
+      #loader { display: none !important; }
     }
+    @media (max-width: 480px) {
+      .loader-logo { max-width:180px !important; }
+      h1 { font-size:20px !important; }
+      p { font-size:14px !important; line-height:1.4 !important; }
+    }
+  </style>
+
+  <!-- Script -->
+  <script>
+    window.addEventListener("load", () => {
+      const sound = document.getElementById("loaderSound");
+      if (sound) sound.play().catch(() => {});
+
+      setTimeout(() => {
+        const loader = document.getElementById("loader");
+        loader.style.transition = "all 2s ease";
+        loader.style.transform = "translateY(-100%)";
+        loader.style.opacity = "0";
+        setTimeout(() => loader.style.display = "none", 1500);
+      }, 2000); // Adjust duration before hiding loader
+    });
+  </script>
+
+</section>
+
+
+
+  <style>
+  /* ================= GLOBAL RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  scroll-behavior: smooth;
+  font-family: 'Poppins', sans-serif;
+  background: #fff; /* White background */
+  color: #111; /* Dark text */
+}
+
+/* ================= NAVBAR ================= */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 12vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5vh 8vw;
+  background: #fff;
+  backdrop-filter: blur(18px) saturate(180%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  z-index: 1000;
+  transition: all 0.4s ease;
+}
+
+
+/* Only for top navbar menu buttons */
+.nav-part2 > .nav-elem > a {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-part2 > .nav-elem > a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #0BA34E, #07d67a);
+  transition: 0.4s;
+}
+
+.nav-part2 > .nav-elem > a:hover::after {
+  width: 100%;
+}
+
+nav .logo img {
+  height: 100px;
+  transition: 0.3s;
+}
+
+nav .logo img:hover {
+
+  filter: drop-shadow(0 0 12px rgba(7, 214, 122, 0.4));
+}
+
+.nav-part2 {
+  display: flex;
+  gap: 2.8vw;
+  align-items: center;
+}
+
+.nav-elem {
+  position: relative;
+}
+
+.nav-elem a {
+  font-size: clamp(12px, 0.9vw, 15px);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  transition: 0.3s;
+  position: relative;
+  color: #111; /* Dark text */
+  text-decoration: none;
+}
+nav button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: skewX(-25deg);
+  transition: left 0.4s ease;
+  pointer-events: none; /* ← add this */
+}
+
+
+.nav-elem a:hover {
+  color: #07d67a;
+}
+
+.nav-elem a:hover::after {
+  width: 100%;
+}
+
+/* ================= DROPDOWN (DESKTOP) ================= */
+.dropdown {
+  position: absolute;
+  top: 120%;
+  left: 0;
+  min-width: 260px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: all 0.35s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown li {
+  list-style: none;
+}
+
+.dropdown li a {
+  display: block;
+  padding: 14px 22px;
+  font-size: clamp(12px, 0.9vw, 15px);
+  font-weight: 500;
+  color: #333;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.dropdown li a:hover {
+  background: linear-gradient(90deg, #0BA34E, #07d67a);
+  color: #fff;
+  padding-left: 28px;
+}
+
+.nav-elem:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* ================= SUB-DROPDOWN (DESKTOP) ================= */
+.sub-dropdown {
+  position: absolute;
+  left: 100%;
+  top: 0;
+  min-width: 220px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(15px);
+  transition: all 0.35s ease;
+}
+
+.sub-dropdown li a {
+  padding: 12px 20px;
+  font-size: 14px;
+  color: #333;
+}
+
+.sub-dropdown li a:hover {
+  background: linear-gradient(90deg, #0BA34E, #07d67a);
+  color: #fff;
+  padding-left: 26px;
+}
+
+.has-submenu:hover .sub-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+/* ================= CTA BUTTON ================= */
+nav button {
+  background: linear-gradient(135deg, #0BA34E, #07d67a);
+  color: #fff;
+  padding: 12px 28px;
+  font-size: clamp(12px, 0.85vw, 15px);
+  text-transform: uppercase;
+  font-weight: 700;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  position: relative;
+  transition: 0.4s ease;
+  box-shadow: 0 4px 14px rgba(11, 163, 78, 0.3);
+  background-size: 200% auto;
+}
+
+nav button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: skewX(-25deg);
+  transition: left 0.4s ease;
+}
+
+nav button:hover::before {
+  left: 100%;
+}
+
+nav button:hover {
+  background-position: right center;
+  transform: translateY(-3px) scale(1.07);
+  box-shadow: 0 0 20px rgba(11, 163, 78, 0.7);
+}
+/* ================= HAMBURGER MOBILE ================= */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.hamburger span {
+  width: 28px;
+  height: 3px;
+  background: #111; /* Dark bars for light background */
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+/* ================= SIDEBAR MOBILE ================= */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -280px;
+  width: 260px;
+  height: 100%;
+  background: #fff; /* Light sidebar */
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+  padding: 25px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: right 0.35s ease;
+  z-index: 2000;
+}
+
+.sidebar.active {
+  right: 0;
+}
+
+.sidebar .close-btn {
+  font-size: 2rem;
+  color: #111;
+  cursor: pointer;
+  align-self: flex-end;
+  margin-bottom: 20px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #111;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 10px 0;
+  display: block;
+  transition: 0.3s;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.sidebar a:hover {
+  color: #07d67a;
+  padding-left: 6px;
+}
+
+/* ================= SIDEBAR DROPDOWN ================= */
+.sidebar .dropdown-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #111;
+  cursor: pointer;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+}
+
+.sidebar .dropdown-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.3s ease;
+  padding-left: 12px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.sidebar .dropdown.open .dropdown-content {
+  max-height: 1000px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.sidebar .dropdown-content a {
+  font-size: 0.95rem;
+  color: #555;
+  padding: 8px 0;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar .dropdown-content a:hover {
+  color: #07d67a;
+  padding-left: 16px;
+}
+
+.sidebar .dropdown.open .dropdown-btn span {
+  transform: rotate(180deg);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  nav .nav-part2,
+  nav button {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* ================= SIMPLE DROPDOWN ARROWS ================= */
+
+/* Only for menu items with dropdown */
+.nav-elem.has-dropdown > a::after {
+  content: "▼"; /* simple downward arrow */
+  margin-left: 6px;
+  font-size: 0.8em;
+  color: #07d67a; /* arrow color */
+  transition: transform 0.3s ease;
+  float: right; /* place on the right side */
+}
+
+/* Rotate arrow when dropdown is open */
+.nav-elem.has-dropdown:hover > a::after {
+  transform: rotate(180deg); /* arrow points up */
+}
+
+/* For sub-dropdowns, if needed */
+.has-submenu > a::after {
+  content: "▶"; /* right arrow */
+  margin-left: 6px;
+  font-size: 0.8em;
+  color: #07d67a;
+  transition: transform 0.3s ease;
+}
+
+/* Rotate sub-dropdown arrow when hovered */  
+.has-submenu:hover > a::after {
+  transform: rotate(90deg); /* arrow points down */
+}
+
+/* Inline arrow styling */
+a.has-dropdown .arrow {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 0.8em;
+  color: #07d67a;
+  transition: transform 0.3s ease;
+}
+
+/* Rotate arrow on hover of parent link */
+a.has-dropdown:hover .arrow {
+  transform: rotate(180deg);
+}
+
   </style>
 </head>
 
 <body>
-  <!-- ============ NAVBAR ============ -->
+  <!-- ===== NAVBAR ===== -->
   <nav id="navbar">
-<a href="index.html" class="logo">
-  <img src="images/LOGO_02.png" alt="Aquagreen Logo">
-</a>
+    <a href="index.html" class="logo">
+      <img src="images/LOGO_02.png" alt="Aquagreen Logo">
+    </a>
 
     <div class="nav-part2">
       <div class="nav-elem"><a href="index.html">HOME</a></div>
       <div class="nav-elem"><a href="About.html">ABOUT US</a></div>
       <div class="nav-elem">
-        <a href="#">PRODUCTS</a>
+     <a href="#" class="has-dropdown">
+  PRODUCTS <span class="arrow">▼</span>
+</a>
+
         <ul class="dropdown">
-          <li><a href="#">Water Treatment Solutions</a></li>
-          <li><a href="#">Waste Water Treatment Solutions</a></li>
-          <li><a href="#">Water & Waste Water Treatment Chemicals</a></li>
+          <li class="has-submenu">
+            <a href="WATER_TRET.html">Water Treatment Systems </a>
+            <ul class="sub-dropdown">
+              <li><a href="WATER_TRET.html">Ozone System</a></li>
+              <li><a href="WATER_TRET.html">Ultrafiltration (UF) System</a></li>
+              <li><a href="WATER_TRET.html">Water Treatment Plant (WTP)</a></li>
+              <li><a href="WATER_TRET.html">Demineralization (DM) Plant</a></li>
+              <li><a href="WATER_TRET.html">Reverse Osmosis (RO) Plant</a></li>
+              <li><a href="WATER_TRET.html">Water Softener</a></li>
+            </ul>
+          </li>
+          <li class="has-submenu">
+            <a href="WASTE_WAT.html">Wastewater Treatment </a>
+            <ul class="sub-dropdown">
+              <li><a href="WASTE_WAT.html">Effluent Treatment Plant (ETP)</a></li>
+              <li><a href="WASTE_WAT.html">Sewage Treatment Plant (STP)</a></li>
+              <li><a href="WASTE_WAT.html">DAF Unit</a></li>
+              <li><a href="WASTE_WAT.html">Primary & Secondary Clarifier</a></li>
+              <li><a href="WASTE_WAT.html">Wet Fume Scrubber</a></li>
+              <li><a href="WASTE_WAT.html">MEE</a></li>
+            </ul>
+          </li>
+
+          <li class="has-submenu">
+            <a href="chemicals.html">Chemicals </a>
+            <ul class="sub-dropdown">
+
+            </ul>
+          </li>
+          <li class="has-submenu">
+            <a href="environmental.html">Environmental </a>
+            <ul class="sub-dropdown">
+      
+            </ul>
+          </li>
         </ul>
       </div>
-      <div class="nav-elem"><a href="#">SERVICES</a></div>
-      <div class="nav-elem"><a href="#">OUR WORK</a></div>
+        <!-- SERVICES MENU -->
+  <div class="nav-elem">
+     <a href="#" class="has-dropdown">
+  SERVICES <span class="arrow">▼</span>
+</a>
+    <ul class="dropdown">
+      <li><a href="#">AMC (WTP, STP, ETP, MEE, RO, UF)</a></li>
+      <li><a href="#">EPR Registration</a></li>
+      <li><a href="#">NOC from CGWA</a></li>
+    </ul>
+  </div>
+      <div class="nav-elem"><a href="Our_Work.html">OUR WORK</a></div>
       <div class="nav-elem"><a href="contact.html">CONTACT</a></div>
     </div>
-    <button onclick="location.href='#'">Get More Details</button>
 
-    <!-- Hamburger (only mobile) -->
-    <div class="hamburger" onclick="toggleSidebar()">
-      <span></span><span></span><span></span>
-    </div>
+    <button onclick="location.href='#'">Get More Details</button>
+    <div class="hamburger" onclick="toggleSidebar()"><span></span><span></span><span></span></div>
   </nav>
 
   <!-- ===== MOBILE SIDEBAR ===== -->
@@ -359,36 +542,80 @@
     <div class="close-btn" onclick="toggleSidebar()">×</div>
     <a href="index.html">HOME</a>
     <a href="About.html">ABOUT US</a>
-
-    <!-- Dropdown inside sidebar -->
     <div class="dropdown">
-      <div class="dropdown-btn" onclick="toggleDropdown(this)">
-        PRODUCTS <span>▼</span>
-      </div>
+      <div class="dropdown-btn">PRODUCTS <span class="ri-arrow-down-s-line"></span></div>
       <div class="dropdown-content">
-        <a href="#">Water Treatment Solutions</a>
-        <a href="#">Waste Water Treatment Solutions</a>
-        <a href="#">Water & Waste Water Treatment Chemicals</a>
+        <div class="dropdown">
+          <div class="dropdown-btn">Water Treatment Systems <span class="ri-arrow-down-s-line"></span></div>
+          <div class="dropdown-content">
+            <a href="#">Ozone System</a>
+            <a href="#">Ultrafiltration (UF) System</a>
+            <a href="#">Water Treatment Plant (WTP)</a>
+            <a href="#">Demineralization (DM) Plant</a>
+            <a href="#">Reverse Osmosis (RO) Plant</a>
+            <a href="#">Water Softener</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <div class="dropdown-btn">Wastewater Treatment <span class="ri-arrow-down-s-line"></span></div>
+          <div class="dropdown-content">
+            <a href="#">Effluent Treatment Plant (ETP)</a>
+            <a href="#">Sewage Treatment Plant (STP)</a>
+            <a href="#">DAF Unit</a>
+            <a href="#">Primary & Secondary Clarifier</a>
+            <a href="#">Wet Fume Scrubber</a>
+            <a href="#">MEE</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <div class="dropdown-btn">Services <span class="ri-arrow-down-s-line"></span></div>
+          <div class="dropdown-content">
+            <a href="#">AMC (WTP, STP, ETP, MEE, RO, UF)</a>
+            <a href="#">EPR Registration</a>
+            <a href="#">NOC from CGWA</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <div class="dropdown-btn">Chemicals <span class="ri-arrow-down-s-line"></span></div>
+          <div class="dropdown-content">
+
+          </div>
+        </div>
+        <div class="dropdown">
+          <div class="dropdown-btn">Environmental <span class="ri-arrow-down-s-line"></span></div>
+          <div class="dropdown-content">
+          
+          </div>
+        </div>
       </div>
     </div>
-
-    <a href="#">SERVICES</a>
-    <a href="#">OUR WORK</a>
+    <a href="our-work.html">OUR WORK</a>
     <a href="contact.html">CONTACT</a>
-    <a href="#">Get More Details</a>
   </div>
-
-  <!-- ============ HERO SECTION ============ -->
 
   <script>
     function toggleSidebar() {
-      document.getElementById("sidebar").classList.toggle("active");
+      document.getElementById('sidebar').classList.toggle('active');
     }
 
-    function toggleDropdown(el) {
-      el.parentElement.classList.toggle("open");
-    }
+    // Mobile sidebar nested dropdown
+    const dropdownBtns = document.querySelectorAll('.sidebar .dropdown-btn');
+    dropdownBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const parent = btn.parentElement;
+        parent.classList.toggle('open');
+      });
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+    });
   </script>
+</body>
+</html>
+
+
 
 <section id="hero" style="min-height:90vh; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:100px 20px; text-align:center; position:relative; overflow:hidden; color:#fff; margin-top:12vh; font-family:'Poppins', sans-serif;">
 
@@ -416,9 +643,10 @@
     </h1>
 
     <!-- Subtext -->
-    <p style="font-size:20px; color:white; max-width:750px; margin:0 auto 40px; line-height:1.7; opacity:0; animation:fadeInUp 1.5s forwards; animation-delay:1s;">
-      We specialize in advanced <span style="color:#07d67a;">Water & Wastewater Treatment</span> technologies, delivering innovative and eco-friendly solutions that empower industries and communities to thrive sustainably.
-    </p>
+<!-- Subtext -->
+<p style="font-size:20px; color:white; max-width:750px; margin:0 auto 40px; line-height:1.7; opacity:0; animation:fadeInUp 1.5s forwards; animation-delay:1s;">
+  We specialize in advanced <b style="color:white; text-shadow:0 0 8px #0BA34E, 0 0 12px #0BA34E;">Water & Wastewater Treatment</b> technologies, delivering innovative and eco-friendly solutions that empower industries and communities to thrive sustainably.
+</p>
 
     <!-- CTA Buttons -->
     <div style="display:flex; gap:20px; flex-wrap:wrap; justify-content:center; opacity:0; animation:fadeInUp 1.5s forwards; animation-delay:1.5s;">
@@ -455,10 +683,10 @@
       <span style="position:absolute; bottom:-8px; left:50%; transform:translateX(-50%); width:60%; height:4px; background:#0BA34E; border-radius:2px;"></span>
     </h2>
     <p style="font-size:1.1rem; line-height:1.8; color:#555; margin-top:25px;">
-      <b style="color:#0BA34E;">Aquagreen Tech Solutions (AGTS)</b> is dedicated to creating sustainable, innovative, and eco-friendly solutions in 
+      <b style="color:#0BA34E;">Aquagreen Tech Solutions (AGTS)</b> creates sustainable, innovative, and eco-friendly solutions in 
       <b>water treatment, wastewater treatment, energy management, water audits, industrial fabrication</b>, and <b>treatment chemicals</b>.
       <br><br>
-      Guided by our principle <b style="color:#0BA34E;">“Reduce • Recycle • Reuse”</b>, we are committed to protecting natural resources for future generations.  
+      Guided by <b style="color:#0BA34E;">“Reduce • Recycle • Reuse”</b>, we protect natural resources for future generations.  
       <i style="color:#888; display:block; margin-top:10px;">...because we care for you!</i>
     </p>
   </div>
@@ -466,83 +694,72 @@
   <!-- Content Grid -->
   <div style="max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:40px; align-items:stretch;">
 
-    <!-- Card 1 -->
-    <div style="position:relative; overflow:hidden; border-radius:15px; height:350px; box-shadow:0 10px 25px rgba(0,0,0,0.12); cursor:pointer;">
-      <!-- Image -->
-      <img src="images/ABOUT_02.jpg" alt="Recognitions" style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0; opacity:0; transition:opacity 0.5s ease;">
-      <!-- Text -->
-      <div style="position:absolute; inset:0; background:#fff; padding:40px 30px; display:flex; flex-direction:column; justify-content:center; text-align:center; transition:opacity 0.5s ease;">
-        <h3 style="font-size:1.6rem; font-weight:600; margin-bottom:50px; color:#0BA34E;">Recognitions</h3>
-        <ul style="list-style:none; padding:0; margin:0; font-size:1rem; line-height:1.8; color:#444;">
-          <li>✔ Licensed by Maharashtra Pollution Control Board</li>
-          <li>✔ Consent to Establish</li>
-          <li>✔ Consent to Operate (renewable periodically)</li>
-        </ul>
-      </div>
-    </div>
+ <!-- Card 1 -->
+<div class="hover-card" style="position:relative; overflow:hidden; border-radius:15px; height:350px; box-shadow:0 10px 25px rgba(0,0,0,0.12); cursor:pointer; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+  <img src="images/ABOUT_02.jpg" alt="Recognitions" style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0; opacity:0; transition:opacity 0.5s ease;">
+  <div style="position:absolute; inset:0; background:#fff; padding:30px 20px; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; transition:opacity 0.5s ease;">
+    <h3 style="font-size:1.6rem; font-weight:600; margin-bottom:20px; color:#0BA34E;">Recognitions</h3>
+    <p style="font-size:1rem; line-height:1.8; color:#444; text-align:left; margin:0;">
+      We are proudly licensed by the Maharashtra Pollution Control Board, have obtained Consent to Establish, and maintain Consent to Operate, which is renewable periodically.
+    </p>
+  </div>
+</div>
 
-    <!-- Card 2 -->
-    <div style="position:relative; overflow:hidden; border-radius:15px; height:350px; box-shadow:0 10px 25px rgba(0,0,0,0.12); cursor:pointer;">
-      <!-- Image -->
-      <img src="images/ABOUT_03.jpg" alt="Industries We Serve" style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0; opacity:0; transition:opacity 0.5s ease;">
-      <!-- Text -->
-      <div style="position:absolute; inset:0; background:#fff; padding:40px 30px; display:flex; flex-direction:column; justify-content:center; text-align:center; transition:opacity 0.5s ease;">
-        <h3 style="font-size:1.6rem; font-weight:600; margin-bottom:20px; color:#0BA34E;">Industries We Serve</h3>
-        <ul style="list-style:none; padding:0; margin:0; font-size:1rem; line-height:1.8; color:#444;">
-          <li>✔ Traders</li>
-          <li>✔ Manufacturing Industries</li>
-          <li>✔ IT Parks</li>
-          <li>✔ Housing Societies</li>
-          <li>✔ Hospitals</li>
-          <li>✔ Hotels</li>
-        </ul>
-      </div>
-    </div>
+<!-- Card 2 -->
+<div class="hover-card" style="position:relative; overflow:hidden; border-radius:15px; height:350px; box-shadow:0 10px 25px rgba(0,0,0,0.12); cursor:pointer; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+  <img src="images/ABOUT_03.jpg" alt="Industries We Serve" style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0; opacity:0; transition:opacity 0.5s ease;">
+  <div style="position:absolute; inset:0; background:#fff; padding:30px 20px; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; transition:opacity 0.5s ease;">
+    <h3 style="font-size:1.6rem; font-weight:600; margin-bottom:20px; color:#0BA34E;">Industries We Serve</h3>
+    <p style="font-size:1rem; line-height:1.8; color:#444; text-align:left; margin:0;">
+      We provide solutions to a wide range of industries, including traders, manufacturing industries, IT parks, housing societies, hospitals, and hotels.
+    </p>
+  </div>
+</div>
+<!-- Card 3 -->
+<div class="hover-card" style="position:relative; overflow:hidden; border-radius:15px; height:350px; box-shadow:0 10px 25px rgba(0,0,0,0.12); cursor:pointer; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+  <img src="images/HOME_ABOUT_01.jpg" alt="Industries We Serve" style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0; opacity:0; transition:opacity 0.5s ease;">
+  <div style="position:absolute; inset:0; background:#fff; padding:30px 20px; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; transition:opacity 0.5s ease;">
+    <h3 style="font-size:1.6rem; font-weight:600; margin-bottom:20px; color:#0BA34E;">Our Commitment</h3>
+    <p style="font-size:1rem; line-height:1.8; color:#444; text-align:left; margin:0;">
+      We embrace sustainable technologies to provide safe, efficient, and eco-friendly water and energy solutions that shape a greener tomorrow. 
+    </p>
+  </div>
+</div>
 
-    <!-- Card 3 -->
-    <div style="position:relative; overflow:hidden; border-radius:15px; height:350px; box-shadow:0 10px 25px rgba(0,0,0,0.12); cursor:pointer;">
-      <!-- Image -->
-      <img src="images/HOME_ABOUT_01.jpg" alt="Aquagreen" style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0; opacity:0; transition:opacity 0.5s ease;">
-      <!-- Text -->
-      <div style="position:absolute; inset:0; background:#fff; padding:40px 30px; display:flex; flex-direction:column; justify-content:center; text-align:center; transition:opacity 0.5s ease;">
-        <h3 style="font-size:1.6rem; font-weight:600; margin-bottom:66px; color:#0BA34E;">Our Commitment</h3>
-        <p style="font-size:1rem; line-height:1.7; color:#444; margin-bottom: 30px;">
-          We embrace sustainable technologies to provide safe, efficient, and eco-friendly water & energy solutions that shape a greener tomorrow.
-        </p>
-      </div>
-    </div>
+
+
 
   </div>
 </section>
 
-<!-- Hover Effect -->
-<!-- Hover Effect + Alignment Fix -->
 <style>
-  #about-us .hover-card:hover img { 
-    opacity: 1 !important; 
+  /* Card Hover Effects */
+  #about-us .hover-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 35px rgba(0,0,0,0.2);
   }
-  #about-us .hover-card:hover div { 
-    opacity: 0 !important; 
+  #about-us .hover-card:hover img {
+    opacity: 1 !important;
+  }
+  #about-us .hover-card:hover div {
+    opacity: 0 !important;
   }
 
-  /* Force all card headings to align in one row */
+  /* Card Headings */
   #about-us h3 {
-    min-height: 50px;  /* same space for all headings */
+    min-height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px; /* keep consistent spacing */
+    text-align: center;
+  }
+
+  /* Ensure consistent spacing for ul text */
+  #about-us ul {
+    padding-left: 0;
+    list-style-position: inside;
   }
 </style>
-
-
-<script>
-  // Add hover effect dynamically
-  document.querySelectorAll("#about-us > div > div").forEach(card=>{
-    card.classList.add("hover-card");
-  });
-</script>
-
 
 
 
@@ -993,97 +1210,97 @@ document.addEventListener("DOMContentLoaded", () => {
     const services = [
       {
         title: "Ozone System",
-        image: "images/MACD_15.JPG",
+        image: "images/OZON_01.jpg",
         link: "MAC_DERMIDE.html",
         description: "The Ozone system reduces organic matter, COD/BOD load, disinfects odour & colour. It generates ozone using UV or corona discharge and oxidizes pollutants effectively."
       },
       {
         title: "Ultrafiltration (UF) System ",
-        image: "images/Orafol-1375.webp",
+        image: "images/02.jpg",
         link: "Orafol.html",
         description: "Low-maintenance membrane process that removes bacteria, viruses & colloidal matter. Produces consistent water quality with 90–100% pathogen removal."
       },
       {
         title: "Water Treatment Plant",
-        image: "images/3M_03.JPG",
+        image: "images/03.jpg",
         link: "3M.html",
         description: "Advanced oxidation systems for safe drinking water. Combines coagulation, filtration & disinfection with UF/NF/RO for pure, healthy water."
       },
       {
         title: "DM Plant",
-        image: "images/SABIC_02.jpg",
+        image: "images/04.jpg",
         link: "Sabic.html",
         description: "Cutting-edge technology to remove impurities for industrial & human consumption. Built with durability & compliance in mind, backed by full support & AMC."
       },
        {
         title: "Reverse Osmosis (RO) Plant ",
-        image: "images/ALL_Machines_05.JPG",
+        image: "images/05.jpg",
         link: "Stretching.html",
         description: "Durable & low maintenance,Smart monitoring & alerts,Energy-efficient operation,Removes 99% contaminants."
       },
       {
         title: "Water Softener",
-        image: "images/ALL_Machines_04.JPG",
+        image: "images/06.jpg",
         link: "Exposing.html",
         description: "Ion exchange resin-based softening system with regeneration & brine tanks. Ensures scale-free, smooth water for industrial & domestic use."
       },
       {
         title: "Effluent Treatment Plant (ETP) ",
-        image: "images/screen-stretching.jpg",
+        image: "images/07.jpg",
         link: "MAchine_Stre.html",
         description: "Employs MBBR, MBR, SBR & FAB technologies for industrial effluent purification, ensuring compliance with environmental standards."
       },
       {
         title: "Multi Effect Evaporator (MEE)",
-        image: "images/ALL_Machines_02.JPG",
+        image: "images/08.JPG",
         link: "Machines_EXPO.html",
         description: "End-to-end maintenance of WTP, STP, ETP, MEE, RO & UF systems for continuous, efficient operations."
       },
       {
         title: "Sewage Treatment Plant (STP)",
-        image: "images/Nittoku_mesh (2).jpg",
+        image: "images/09.jpg",
         link: "Nittoku.html",
         description: "Multi-stage process with ASP, MBBR, MBR, SBR & RBC. Energy-efficient, modular, and designed for safe water reuse."
       },
       {
         title: "Clarifiers",
-        image: "images/PRINT_COLOR.JPG",
+        image: "images/10.JPG",
         link: "Print_color.html",
         description: "Gravity settling system for suspended solids, producing sludge & scum removal with enhanced coagulants."
       },
       {
         title: "Dissolved Air Flotation (DAF) ",
-        image: "images/Yessor.jpg",
+        image: "images/12.jpg",
         link: "Yessor.html",
         description: "Removes oils & solids by tiny air bubbles. Widely used in Dairy, Paper, Oil, Refineries & Textile industries."
       },
       {
         title: "Wet Fume Scrubber ",
-        image: "images/sunsui.jpg",
+        image: "images/11.jpg",
         link: "Sansui.html",
         description: "Neutralizes corrosive gases & particulate matter in compact installations. Safe handling of high-temp gas streams."
       },
       {
         title: "Central Ground Water Authority (CGWA) NOC",
-        image: "images/nitto_808.png",
+        image: "images/CGWA.jpg",
         link: "NittoL.html",
         description: "NOC facilitation for industries, borewells & authorized water suppliers for ground water extraction."
       },
             {
         title: "Water & Waste Water Treatment Chemicals",
-        image: "images/nitto_808.png",
+        image: "images/CHEMICAL.jpg",
         link: "NittoL.html",
         description: "Lime/alum replacement, boiler & cooling tower chemicals, RO antiscalants, odor removers, bio-cultures & flocculants."
       },
             {
         title: "Environmental Monitoring",
-        image: "images/nitto_808.png",
+        image: "images/16.jpg",
         link: "NittoL.html",
         description: "Ambient Air & Noise Monitoring, Stack Emission, Ventilation survey, DG Noise monitoring, STP/ETP sample analysis."
       },
       {
         title: "Extended Producer Responsibility (EPR)",
-        image: "images/Avery_011.jpg",
+        image: "images/1111111.jpg",
         link: "Avery.html",
         description: "Registrations & compliance services for Plastic Waste, E-Waste & Battery Waste management."
       }
@@ -1391,8 +1608,7 @@ document.addEventListener("DOMContentLoaded", () => {
   margin: 40px 0;
   padding: 0;
 }
-
-/* Vertical line */
+/* Vertical line (animated via --line-height) */
 .timeline::before {
   content: '';
   position: absolute;
@@ -1400,9 +1616,10 @@ document.addEventListener("DOMContentLoaded", () => {
   left: 50%;
   transform: translateX(-50%);
   width: 6px;
-  height: 100%;
+  height: var(--line-height, 0); /* animated with JS */
   background: linear-gradient(to bottom, #0BA34E, #07D67A);
   border-radius: 3px;
+  transition: height 0.2s linear;
 }
 
 /* Timeline item */
@@ -1448,7 +1665,7 @@ document.addEventListener("DOMContentLoaded", () => {
   align-items: center;
   justify-content: center;
   font-size: 1.4rem;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.9);
   z-index: 5;
 }
 
@@ -1459,37 +1676,43 @@ document.addEventListener("DOMContentLoaded", () => {
 .timeline-item:nth-child(even) .timeline-icon {
   left: -22px;
 }
-
 /* Timeline content box */
 .timeline-content {
-  background: #fff;
-  padding: 20px 25px;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  background: linear-gradient(135deg, #ffffff, #f8fdf9);
+  padding: 22px 28px;
+  border-radius: 16px;
+  border: 2px solid transparent;
+  background-clip: padding-box, border-box;
+  background-origin: border-box;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
   display: inline-block;
-  max-width: 380px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 400px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
 }
 
 /* Hover effect */
 .timeline-content:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+  border-color: #0BA34E; /* green accent on hover */
 }
 
 /* Text link style */
 .timeline-content a {
   text-decoration: none;
-  color: #333;
-  font-size: 1rem;
-  font-weight: 500;
+  color: #222;
+  font-size: 1.05rem;
+  font-weight: 600;
   line-height: 1.6;
   display: block;
+  letter-spacing: 0.3px;
+  transition: color 0.3s ease;
 }
 
 .timeline-content a:hover {
   color: #0BA34E;
 }
+
 
 /* Left/right spacing */
 .timeline-item:nth-child(odd) .timeline-content {
@@ -1548,94 +1771,120 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-<style>
-.timeline-item {
-  opacity: 0;
-  transform: translateY(80px);
-}
-.timeline-item.show {
-  animation: bounceIn 1s forwards;
-}
 
-@keyframes bounceIn {
-  0% { opacity: 0; transform: translateY(80px) scale(0.9); }
-  50% { opacity: 1; transform: translateY(-10px) scale(1.05); }
-  100% { opacity: 1; transform: translateY(0) scale(1); }
-}
-</style>
+<script>
+document.addEventListener("DOMContentLoaded", () => { 
+  const timeline = document.querySelector(".timeline");
+  const items = document.querySelectorAll(".timeline-item");
+
+  let currentHeight = 0;
+
+  const revealOnScroll = () => {
+    const rect = timeline.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+
+    let targetHeight = Math.min(windowHeight - rect.top, rect.height);
+    targetHeight = Math.max(0, targetHeight);
+
+    // Smoothly approach target height
+    currentHeight += (targetHeight - currentHeight) * 0.08; // smaller = slower
+    timeline.style.setProperty("--line-height", currentHeight + "px");
+
+    // Reveal items
+    const triggerBottom = window.innerHeight * 0.55;
+    items.forEach((item, i) => {
+      const boxTop = item.getBoundingClientRect().top;
+      if (boxTop < triggerBottom) {
+        setTimeout(() => {
+          item.classList.add("show");
+        }, i * 30);
+      }
+    });
+
+    requestAnimationFrame(revealOnScroll);
+  };
+
+  revealOnScroll();
+});
+
+</script>
 
 
+<!-- ============ FOOTER ============ -->
+<footer id="footer" style="background: linear-gradient(135deg, #f7fff9, #e8fdf3, #d6fdea); color:#333; padding:60px 20px 30px; font-family:'Poppins', sans-serif; position:relative; overflow:hidden;">
 
-  <!-- ============ FOOTER ============ -->
-<footer id="footer" style="background: linear-gradient(135deg, #000, #000); color:#fff; padding:60px 20px 20px; font-family:'Poppins', sans-serif;">
+  <!-- Decorative Overlay -->
+  <div style="position:absolute; inset:0; background:radial-gradient(circle at top left, rgba(7,214,122,0.15), transparent 60%), radial-gradient(circle at bottom right, rgba(11,163,78,0.15), transparent 60%); z-index:0;"></div>
 
   <!-- Top Section -->
-  <div style="max-width:1400px; margin:auto; display:flex; flex-wrap:wrap; justify-content:space-between; gap:40px; border-top:2px solid rgba(7,214,122,0.4); padding-top:40px;">
+  <div style="max-width:1400px; margin:auto; display:flex; flex-wrap:wrap; justify-content:space-between; gap:40px; border-top:2px solid rgba(7,214,122,0.25); padding-top:40px; position:relative; z-index:1;">
 
     <!-- Logo + About -->
     <div style="flex:1; min-width:250px;">
-      <img src="images/logo.png" alt="Aquagreen Logo" style="height:70px; margin-bottom:20px;">
-      <p style="max-width:320px; line-height:1.7; font-size:14px; opacity:0.85;">
-        Aquagreen Tech Solutions provides sustainable innovations in water & wastewater treatment, ensuring a greener and cleaner future for industries and communities.
+      <img src="images/logo.png" alt="Aquagreen Logo" style="height:80px; margin-bottom:20px;">
+      <p style="max-width:350px; line-height:1.8; font-size:16px; color:#444;">
+        Aquagreen Tech Solutions delivers sustainable innovations in water & wastewater treatment, ensuring a greener and cleaner future for industries and communities.
       </p>
     </div>
 
     <!-- Quick Links -->
     <div style="flex:1; min-width:180px;">
-      <h3 style="font-size:18px; margin-bottom:16px; color:#07d67a;">Quick Links</h3>
+      <h3 style="font-size:20px; margin-bottom:18px; color:#0BA34E; letter-spacing:0.5px;">Quick Links</h3>
       <ul style="list-style:none; padding:0; margin:0;">
-        <li><a href="#" style="color:#fff; text-decoration:none; font-size:14px; display:block; padding:6px 0; transition:0.3s;">Home</a></li>
-        <li><a href="#" style="color:#fff; text-decoration:none; font-size:14px; display:block; padding:6px 0; transition:0.3s;">About Us</a></li>
-        <li><a href="#" style="color:#fff; text-decoration:none; font-size:14px; display:block; padding:6px 0; transition:0.3s;">Products</a></li>
-        <li><a href="#" style="color:#fff; text-decoration:none; font-size:14px; display:block; padding:6px 0; transition:0.3s;">Services</a></li>
-        <li><a href="#" style="color:#fff; text-decoration:none; font-size:14px; display:block; padding:6px 0; transition:0.3s;">Our Work</a></li>
-        <li><a href="#" style="color:#fff; text-decoration:none; font-size:14px; display:block; padding:6px 0; transition:0.3s;">Contact</a></li>
+        <li><a href="#" style="color:#333; text-decoration:none; font-size:16px; display:block; padding:8px 0; transition:0.3s;">Home</a></li>
+        <li><a href="#" style="color:#333; text-decoration:none; font-size:16px; display:block; padding:8px 0; transition:0.3s;">About Us</a></li>
+        <li><a href="#" style="color:#333; text-decoration:none; font-size:16px; display:block; padding:8px 0; transition:0.3s;">Products</a></li>
+        <li><a href="#" style="color:#333; text-decoration:none; font-size:16px; display:block; padding:8px 0; transition:0.3s;">Services</a></li>
+        <li><a href="#" style="color:#333; text-decoration:none; font-size:16px; display:block; padding:8px 0; transition:0.3s;">Our Work</a></li>
+        <li><a href="#" style="color:#333; text-decoration:none; font-size:16px; display:block; padding:8px 0; transition:0.3s;">Contact</a></li>
       </ul>
     </div>
 
     <!-- Contact -->
-    <div style="flex:1; min-width:220px;">
-      <h3 style="font-size:18px; margin-bottom:16px; color:#07d67a;">Contact Us</h3>
-      <p style="line-height:1.9; font-size:14px; opacity:0.85;">
-        🏛 Office No. 131, Jay Ganesh Vision B Wing, Akurdi, Pune 411035<br>
-        🏛 Reg. Add: A201, Renuka Gulmohar 2, B/H City one Mall, Morwadi, Pimpri Pune-411018<br><br>
-        📞 9766878070<br>
-        ☎ 7276368070<br><br>
-        📌 <a href="http://www.aquagreentechs.com" target="_blank" style="color:#07d67a; text-decoration:none;">www.aquagreentechs.com</a><br>
-        📧 <a href="mailto:aquagreentechs@gmail.com" style="color:#07d67a; text-decoration:none;">aquagreentechs@gmail.com</a><br>
-        🌐 <a href="https://www.indiamart.com/aquagreentechsolutions" target="_blank" style="color:#07d67a; text-decoration:none;">IndiaMart Profile</a>
-      </p>
-    </div>
+  <div style="flex:1; min-width:220px;">
+  <h3 style="font-size:20px; margin-bottom:18px; color:#0BA34E; letter-spacing:0.5px;">Contact Us</h3>
+  <p style="line-height:1.8; font-size:16px; color:#444;">
+    Office No. 131, Jay Ganesh Vision B Wing, Akurdi, Pune 411035<br>
+    Registered Address: A201, Renuka Gulmohar 2, B/H City One Mall, Morwadi, Pimpri Pune-411018<br><br>
+    Phone: 9766878070 / 7276368070<br>
+
+    Email: <a href="mailto:aquagreentechs@gmail.com" style="color:#0BA34E; text-decoration:none;">aquagreentechs@gmail.com</a><br>
+
+  </p>
+</div>
 
     <!-- Socials -->
-    <div style="flex:1; min-width:200px;">
-      <h3 style="font-size:18px; margin-bottom:16px; color:#07d67a;">Follow Us</h3>
-      <div class="socials" style="display:flex; gap:16px; font-size:24px;">
-        <a href="#" style="color:#fff; transition:0.3s;"><i class="ri-facebook-circle-fill"></i></a>
-        <a href="#" style="color:#fff; transition:0.3s;"><i class="ri-twitter-x-fill"></i></a>
-        <a href="#" style="color:#fff; transition:0.3s;"><i class="ri-linkedin-box-fill"></i></a>
-        <a href="#" style="color:#fff; transition:0.3s;"><i class="ri-instagram-fill"></i></a>
+    <div style="flex:1; min-width:200px; margin-left: 135px;">
+      <h3 style="font-size:20px; margin-bottom:18px; color:#0BA34E; letter-spacing:0.5px;">Follow Us</h3>
+      <div class="socials" style="display:flex; gap:20px; font-size:28px;">
+        <a href="#" style="color:#444; transition:0.3s;"><i class="ri-facebook-circle-fill"></i></a>
+        <a href="#" style="color:#444; transition:0.3s;"><i class="ri-twitter-x-fill"></i></a>
+        <a href="#" style="color:#444; transition:0.3s;"><i class="ri-linkedin-box-fill"></i></a>
+        <a href="#" style="color:#444; transition:0.3s;"><i class="ri-instagram-fill"></i></a>
       </div>
     </div>
   </div>
 
   <!-- Bottom Bar -->
-  <div style="text-align:center; margin-top:50px; padding:15px 0; font-size:13px; color:rgba(255,255,255,0.7); border-top:1px solid rgba(255,255,255,0.1);">
+  <div style="text-align:center; margin-top:50px; padding:20px 0; font-size:15px; color:#555; border-top:1px solid rgba(0,0,0,0.08); position:relative; z-index:1;">
     © <script>document.write(new Date().getFullYear());</script> Aquagreen Tech Solutions. All Rights Reserved.
   </div>
 
   <style>
     #footer a:hover {
-      color:#07d67a !important;
+      color:#ff7b00 !important;
       padding-left:6px;
+      transition:0.3s;
     }
     #footer .socials a:hover {
-      color:#ff7b00 !important;
-      transform:scale(1.2);
+      color:#07d67a !important;
+      transform:scale(1.3);
+      transition:0.3s;
     }
   </style>
 
 </footer>
+
 
 
   <!-- ================= SCRIPTS ================= -->
