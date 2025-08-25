@@ -1,39 +1,22 @@
+
+
 <!-- background: linear-gradient(135deg, #f9f9f9, #fff); -->
-
-<!-- ✅ Breakdown of where I used your brand colors:
-
-Title ("About Us") → Orange-Red #F24D29
-
-Underline under title → Leaf Green #6CC04A
-
-Company name in paragraph → Bright Lime Green #8DC63F
-
-“Reduce • Recycle • Reuse” → Medium Blue #007ACC
-
-Tagline text ("...because we care for you!") → Dark Navy #1C2A5B
-
-Card 1 (Recognitions) → Leaf Green #6CC04A
-
-Card 2 (Industries We Serve) → Aqua Blue #00CFFF
-
-Card 3 (Commitment) → Deep Green #3A8E3D -->
-
-<!-- 
-<section id="about-us" style="width:100%; padding:100px 20px; font-family:'Poppins', sans-serif; 
-background: linear-gradient(135deg, #e6f2ff 0%, #f9f9f9 100%), url('https://www.transparenttextures.com/patterns/cubes.png');
-background-size: cover;
-color:#333; position:relative; overflow:hidden;"> -->
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Aquagreen TECH SOLUTIONS</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-  <section id="loader" style="position:fixed; top:0; left:0; width:100%; height:100vh; background:#e0f7fa; display:flex; justify-content:center; align-items:center; z-index:9999; overflow:hidden; font-family:'Poppins', sans-serif; flex-direction:column; text-align:center; padding:20px;">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aquagreen TECH SOLUTIONS</title>
+  <link rel="shortcut icon"
+    href="https://assets-global.website-files.com/64a2ab71942e1d57feb6fe39/6528221f95333ff155d01ad2_fav.gif"
+    type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+
+
+<section id="loader" style="position:fixed; top:0; left:0; width:100%; height:100vh; background:#e0f7fa; display:flex; justify-content:center; align-items:center; z-index:9999; overflow:hidden; font-family:'Poppins', sans-serif; flex-direction:column; text-align:center; padding:20px;">
 
   <!-- Logo -->
   <img src="images/LOGO_02.png" alt="AQUA Green Logo" class="loader-logo" style="max-width:300px; margin-bottom:20px; animation:logoBounce 1.5s ease-out forwards;" />
@@ -90,359 +73,547 @@ color:#333; position:relative; overflow:hidden;"> -->
   </script>
 
 </section>
+
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  /* ================= GLOBAL RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #f9f9f9;
-    }
+html,
+body {
+  height: 100%;
+  width: 100%;
+  scroll-behavior: smooth;
+  font-family: 'Poppins', sans-serif;
+  background: #fff; /* White background */
+  color: #111; /* Dark text */
+}
 
-    .navbar {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 0px 80px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: transparent;
-      transition: background 0.4s ease, box-shadow 0.4s ease;
-      z-index: 1000;
-    }
+/* ================= NAVBAR ================= */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 12vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5vh 8vw;
+  background: #fff;
+  backdrop-filter: blur(18px) saturate(180%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  z-index: 1000;
+  transition: all 0.4s ease;
+}
 
-    .navbar.scrolled {
-      background: rgba(0, 0, 0, 0.85);
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    }
-.nav-links li,
-.dropdown-menu li,
-.sub-dropdown-menu li {
+
+/* Only for top navbar menu buttons */
+.nav-part2 > .nav-elem > a {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-part2 > .nav-elem > a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #0BA34E, #07d67a);
+  transition: 0.4s;
+}
+
+.nav-part2 > .nav-elem > a:hover::after {
+  width: 100%;
+}
+
+nav .logo img {
+  height: 100px;
+  transition: 0.3s;
+}
+
+nav .logo img:hover {
+
+  filter: drop-shadow(0 0 12px rgba(7, 214, 122, 0.4));
+}
+
+.nav-part2 {
+  display: flex;
+  gap: 2.8vw;
+  align-items: center;
+}
+
+.nav-elem {
+  position: relative;
+}
+
+.nav-elem a {
+  font-size: clamp(12px, 0.9vw, 15px);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  transition: 0.3s;
+  position: relative;
+  color: #111; /* Dark text */
+  text-decoration: none;
+}
+nav button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: skewX(-25deg);
+  transition: left 0.4s ease;
+  pointer-events: none; /* ← add this */
+}
+
+
+.nav-elem a:hover {
+  color: #07d67a;
+}
+
+.nav-elem a:hover::after {
+  width: 100%;
+}
+
+/* ================= DROPDOWN (DESKTOP) ================= */
+.dropdown {
+  position: absolute;
+  top: 120%;
+  left: 0;
+  min-width: 260px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: all 0.35s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown li {
   list-style: none;
 }
 
-    .logo img {
-      height: 100px;
-    }
+.dropdown li a {
+  display: block;
+  padding: 14px 22px;
+  font-size: clamp(12px, 0.9vw, 15px);
+  font-weight: 500;
+  color: #333;
+  text-decoration: none;
+  transition: 0.3s;
+}
 
-    .menu-toggle {
-      display: none;
-      font-size: 24px;
-      color: white;
-      cursor: pointer;
-      z-index: 1001;
-    }
+.dropdown li a:hover {
+  background: linear-gradient(90deg, #0BA34E, #07d67a);
+  color: #fff;
+  padding-left: 28px;
+}
 
-    .nav-links {
-      display: flex;
-      gap: 30px;
-      align-items: center;
-      list-style: none;
-    }
+.nav-elem:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
 
-    .nav-links li {
-      position: relative;
-    }
+/* ================= SUB-DROPDOWN (DESKTOP) ================= */
+.sub-dropdown {
+  position: absolute;
+  left: 100%;
+  top: 0;
+  min-width: 220px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(15px);
+  transition: all 0.35s ease;
+}
 
-    .nav-links > li > a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      transition: color 0.3s ease;
-    }
+.sub-dropdown li a {
+  padding: 12px 20px;
+  font-size: 14px;
+  color: #333;
+}
 
-    .nav-links > li > a:hover {
-      color:  #ff7b00;
-    }
+.sub-dropdown li a:hover {
+  background: linear-gradient(90deg, #0BA34E, #07d67a);
+  color: #fff;
+  padding-left: 26px;
+}
 
-    .dropdown-menu,
-    .sub-dropdown-menu {
-      display: none;
-      position: absolute;
-      top: 100%;
-      background: #fff;
-      min-width: 200px;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-      flex-direction: column;
-      z-index: 1000;
-    }
+.has-submenu:hover .sub-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
 
-    .dropdown-menu a,
-    .sub-dropdown-menu a {
-      display: block;
-      padding: 10px 15px;
-      color: #333;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 900;
-      white-space: nowrap;
-    }
+/* ================= CTA BUTTON ================= */
+nav button {
+  background: linear-gradient(135deg, #0BA34E, #07d67a);
+  color: #fff;
+  padding: 12px 28px;
+  font-size: clamp(12px, 0.85vw, 15px);
+  text-transform: uppercase;
+  font-weight: 700;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  position: relative;
+  transition: 0.4s ease;
+  box-shadow: 0 4px 14px rgba(11, 163, 78, 0.3);
+  background-size: 200% auto;
+}
 
-    .dropdown-menu a:hover,
-    .sub-dropdown-menu a:hover {
-      background: #ff7b00;
-      color: white;
-    }
+nav button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: skewX(-25deg);
+  transition: left 0.4s ease;
+}
 
-    .nav-links li:hover > .dropdown-menu {
-      display: flex;
-    }
+nav button:hover::before {
+  left: 100%;
+}
 
-    .sub-dropdown:hover > .sub-dropdown-menu {
-      display: flex;
-      top: 0;
-      left: 100%;
-    }
+nav button:hover {
+  background-position: right center;
+  transform: translateY(-3px) scale(1.07);
+  box-shadow: 0 0 20px rgba(11, 163, 78, 0.7);
+}
+/* ================= HAMBURGER MOBILE ================= */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 1100;
+}
 
-    .dropdown-arrow {
-      font-size: 12px;
-    }
+.hamburger span {
+  width: 28px;
+  height: 3px;
+  background: #111; /* Dark bars for light background */
+  border-radius: 3px;
+  transition: 0.3s;
+}
 
-    /* ----------- MOBILE VIEW ----------- */
-    @media (max-width: 768px) {
-      .navbar {
-        padding: 20px;
-        background: rgba(0, 0, 0, 0.95); /* <-- Mobile-only navbar background */
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-      }
+/* ================= SIDEBAR MOBILE ================= */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -280px;
+  width: 260px;
+  height: 100%;
+  background: #fff; /* Light sidebar */
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+  padding: 25px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: right 0.35s ease;
+  z-index: 2000;
+}
 
-      .menu-toggle {
-        display: block;
-      }
+.sidebar.active {
+  right: 0;
+}
 
-      .nav-links {
-        position: fixed;
-        top: 0;
-        left: -280px;
-        height: 100vh;
-        width: 280px;
-        background: rgba(0, 0, 0, 0.95);
-        flex-direction: column;
-        padding: 80px 20px;
-        transition: left 0.3s ease;
-        overflow-y: auto;
-      }
+.sidebar .close-btn {
+  font-size: 2rem;
+  color: #111;
+  cursor: pointer;
+  align-self: flex-end;
+  margin-bottom: 20px;
+}
 
-      .nav-links.active {
-        left: 0;
-      }
+.sidebar a {
+  text-decoration: none;
+  color: #111;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 10px 0;
+  display: block;
+  transition: 0.3s;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
 
-      .overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 999;
-        display: none;
-      }
+.sidebar a:hover {
+  color: #07d67a;
+  padding-left: 6px;
+}
 
-      .overlay.show {
-        display: block;
-      }
+/* ================= SIDEBAR DROPDOWN ================= */
+.sidebar .dropdown-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #111;
+  cursor: pointer;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+}
 
-      .nav-links li {
-        width: 100%;
-      }
+.sidebar .dropdown-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.3s ease;
+  padding-left: 12px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
 
-      .nav-links > li > a {
-        color: white;
-        padding: 12px 20px;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-      }
+.sidebar .dropdown.open .dropdown-content {
+  max-height: 1000px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
 
-      .dropdown-menu,
-      .sub-dropdown-menu {
-        position: static;
-        display: none;
-        background: #222;
-        box-shadow: none;
-        width: 100%;
-      }
+.sidebar .dropdown-content a {
+  font-size: 0.95rem;
+  color: #555;
+  padding: 8px 0;
+  display: block;
+  transition: 0.3s;
+}
 
-      .dropdown-menu a,
-      .sub-dropdown-menu a {
-        color: white;
-        padding-left: 30px;
-      }
+.sidebar .dropdown-content a:hover {
+  color: #07d67a;
+  padding-left: 16px;
+}
 
-      .sub-dropdown-menu {
-        padding-left: 10px;
-      }
+.sidebar .dropdown.open .dropdown-btn span {
+  transform: rotate(180deg);
+}
 
-      .dropdown-menu.show,
-      .sub-dropdown-menu.show {
-        display: flex !important;
-        flex-direction: column;
-      }
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  nav .nav-part2,
+  nav button {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+}
 
-      .nav-links li:hover > .dropdown-menu,
-      .sub-dropdown:hover > .sub-dropdown-menu {
-        display: none;
-      }
+/* ================= SIMPLE DROPDOWN ARROWS ================= */
 
-      .nav-links .dropdown-toggle {
-        cursor: pointer;
-      }
-    }
+/* Only for menu items with dropdown */
+.nav-elem.has-dropdown > a::after {
+  content: "▼"; /* simple downward arrow */
+  margin-left: 6px;
+  font-size: 0.8em;
+  color: #07d67a; /* arrow color */
+  transition: transform 0.3s ease;
+  float: right; /* place on the right side */
+}
+
+/* Rotate arrow when dropdown is open */
+.nav-elem.has-dropdown:hover > a::after {
+  transform: rotate(180deg); /* arrow points up */
+}
+
+/* For sub-dropdowns, if needed */
+.has-submenu > a::after {
+  content: "▶"; /* right arrow */
+  margin-left: 6px;
+  font-size: 0.8em;
+  color: #07d67a;
+  transition: transform 0.3s ease;
+}
+
+/* Rotate sub-dropdown arrow when hovered */  
+.has-submenu:hover > a::after {
+  transform: rotate(90deg); /* arrow points down */
+}
+
+/* Inline arrow styling */
+a.has-dropdown .arrow {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 0.8em;
+  color: #07d67a;
+  transition: transform 0.3s ease;
+}
+
+/* Rotate arrow on hover of parent link */
+a.has-dropdown:hover .arrow {
+  transform: rotate(180deg);
+}
+
   </style>
 </head>
+
 <body>
+  <!-- ===== NAVBAR ===== -->
+  <nav id="navbar">
+    <a href="index.html" class="logo">
+      <img src="images/LOGO_02.png" alt="Aquagreen Logo">
+    </a>
 
-  <!-- Navbar -->
-  <!-- ✅ Final Responsive Navbar -->
-<nav class="navbar" id="navbar">
-  <!-- Logo -->
-  <a href="index.html" class="logo">
-    <img src="images/LOGO_02.png" alt="Aquagreen Logo">
-  </a>
+    <div class="nav-part2">
+      <div class="nav-elem"><a href="index.html">HOME</a></div>
+      <div class="nav-elem"><a href="About.html">ABOUT US</a></div>
+      <div class="nav-elem">
+     <a href="PRODUCT.html" class="has-dropdown">
+  PRODUCTS <span class="arrow">▼</span>
+</a>
 
-  <!-- Mobile Toggle -->
-  <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+        <ul class="dropdown">
+          <li class="has-submenu">
+            <a href="PRODUCT.html">Water Treatment Systems </a>
+            <ul class="sub-dropdown">
+              <li><a href="PRODUCT.html">Ozone System</a></li>
+              <li><a href="PRODUCT.html">Ultrafiltration (UF) System</a></li>
+              <li><a href="PRODUCT.html">Water Treatment Plant (WTP)</a></li>
+              <li><a href="PRODUCT.html">Demineralization (DM) Plant</a></li>
+              <li><a href="PRODUCT.html">Reverse Osmosis (RO) Plant</a></li>
+              <li><a href="PRODUCT.html">Water Softener</a></li>
+            </ul>
+          </li>
+          <li class="has-submenu">
+            <a href="PRODUCT.html">Wastewater Treatment </a>
+            <ul class="sub-dropdown">
+              <li><a href="PRODUCT.html">Effluent Treatment Plant (ETP)</a></li>
+              <li><a href="PRODUCT.html">Sewage Treatment Plant (STP)</a></li>
+              <li><a href="PRODUCT.html">DAF Unit</a></li>
+              <li><a href="PRODUCT.html">Primary & Secondary Clarifier</a></li>
+              <li><a href="PRODUCT.html">Wet Fume Scrubber</a></li>
+              <li><a href="PRODUCT.html">MEE</a></li>
+            </ul>
+          </li>
 
-  <!-- Navigation -->
-  <ul class="nav-links" id="navLinks">
-    <li><a href="index.html">HOME</a></li>
-    <li><a href="About.html">ABOUT US</a></li>
+          <li class="has-submenu">
+            <a href="PRODUCT.html">Chemicals </a>
+            <ul class="sub-dropdown">
 
-    <!-- PRODUCTS DROPDOWN -->
-    <li class="dropdown">
-      <a href="PRODUCT.html" class="has-dropdown">
-        PRODUCTS <span class="arrow">▼</span>
-      </a>
-      <ul class="dropdown-menu">
-        <li class="sub-dropdown">
-          <a href="PRODUCT.html">Water Treatment Systems ▸</a>
-          <ul class="sub-dropdown-menu">
-            <li><a href="PRODUCT.html">Ozone System</a></li>
-            <li><a href="PRODUCT.html">Ultrafiltration (UF) System</a></li>
-            <li><a href="PRODUCT.html">Water Treatment Plant (WTP)</a></li>
-            <li><a href="PRODUCT.html">Demineralization (DM) Plant</a></li>
-            <li><a href="PRODUCT.html">Reverse Osmosis (RO) Plant</a></li>
-            <li><a href="PRODUCT.html">Water Softener</a></li>
-          </ul>
-        </li>
+            </ul>
+          </li>
+          <li class="has-submenu">
+            <a href="environmental.html">Environmental </a>
+            <ul class="sub-dropdown">
+      
+            </ul>
+          </li>
+        </ul>
+      </div>
+        <!-- SERVICES MENU -->
+  <div class="nav-elem">
+     <a href="Services.html" class="has-dropdown">
+  SERVICES <span class="arrow">▼</span>
+</a>
+    <ul class="dropdown">
+      <li><a href="Services.html">AMC (WTP, STP, ETP, MEE, RO, UF)</a></li>
+      <li><a href="Services.html">EPR Registration</a></li>
+      <li><a href="Services.html">NOC from CGWA</a></li>
+    </ul>
+  </div>
+      <div class="nav-elem"><a href="Our_Work.html">OUR WORK</a></div>
+      <div class="nav-elem"><a href="contact.html">CONTACT</a></div>
+    </div>
 
-        <li class="sub-dropdown">
-          <a href="PRODUCT.html">Wastewater Treatment ▸</a>
-          <ul class="sub-dropdown-menu">
-            <li><a href="PRODUCT.html">Effluent Treatment Plant (ETP)</a></li>
-            <li><a href="PRODUCT.html">Sewage Treatment Plant (STP)</a></li>
-            <li><a href="PRODUCT.html">DAF Unit</a></li>
-            <li><a href="PRODUCT.html">Primary & Secondary Clarifier</a></li>
-            <li><a href="PRODUCT.html">Wet Fume Scrubber</a></li>
-            <li><a href="PRODUCT.html">MEE</a></li>
-          </ul>
-        </li>
+    <button onclick="location.href='#'">Get More Details</button>
+    <div class="hamburger" onclick="toggleSidebar()"><span></span><span></span><span></span></div>
+  </nav>
 
-        <li><a href="PRODUCT.html">Chemicals</a></li>
-        <li><a href="environmental.html">Environmental</a></li>
-      </ul>
-    </li>
+  <!-- ===== MOBILE SIDEBAR ===== -->
+  <div class="sidebar" id="sidebar">
+    <div class="close-btn" onclick="toggleSidebar()">×</div>
+    <a href="index.html">HOME</a>
+    <a href="About.html">ABOUT US</a>
+    <div class="dropdown">
+      <div class="dropdown-btn">PRODUCTS <span class="ri-arrow-down-s-line"></span></div>
+      <div class="dropdown-content">
+        <div class="dropdown">
+          <div class="dropdown-btn">Water Treatment Systems <span class="ri-arrow-down-s-line"></span></div>
+          <div class="dropdown-content">
+            <a href="#">Ozone System</a>
+            <a href="#">Ultrafiltration (UF) System</a>
+            <a href="#">Water Treatment Plant (WTP)</a>
+            <a href="#">Demineralization (DM) Plant</a>
+            <a href="#">Reverse Osmosis (RO) Plant</a>
+            <a href="#">Water Softener</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <div class="dropdown-btn">Wastewater Treatment <span class="ri-arrow-down-s-line"></span></div>
+          <div class="dropdown-content">
+            <a href="#">Effluent Treatment Plant (ETP)</a>
+            <a href="#">Sewage Treatment Plant (STP)</a>
+            <a href="#">DAF Unit</a>
+            <a href="#">Primary & Secondary Clarifier</a>
+            <a href="#">Wet Fume Scrubber</a>
+            <a href="#">MEE</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <div class="dropdown-btn">Services <span class="ri-arrow-down-s-line"></span></div>
+          <div class="dropdown-content">
+            <a href="#">AMC (WTP, STP, ETP, MEE, RO, UF)</a>
+            <a href="#">EPR Registration</a>
+            <a href="#">NOC from CGWA</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <div class="dropdown-btn">Chemicals <span class="ri-arrow-down-s-line"></span></div>
+          <div class="dropdown-content">
 
-    <!-- SERVICES DROPDOWN -->
-    <li class="dropdown">
-      <a href="Services.html" class="has-dropdown">
-        SERVICES <span class="arrow">▼</span>
-      </a>
-      <ul class="dropdown-menu">
-        <li><a href="Services.html">AMC (WTP, STP, ETP, MEE, RO, UF)</a></li>
-        <li><a href="Services.html">EPR Registration</a></li>
-        <li><a href="Services.html">NOC from CGWA</a></li>
-      </ul>
-    </li>
+          </div>
+        </div>
+        <div class="dropdown">
+          <div class="dropdown-btn">Environmental <span class="ri-arrow-down-s-line"></span></div>
+          <div class="dropdown-content">
+          
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="Our_Work.html">OUR WORK</a>
+    <a href="contact.html">CONTACT</a>
+  </div>
 
-    <li><a href="Our_Work.html">OUR WORK</a></li>
-    <li><a href="contact.html">CONTACT</a></li>
-  </ul>
-</nav>
-
-  <!-- Overlay -->
-  <div class="overlay" id="overlay"></div>
-
-  <!-- JavaScript -->
   <script>
-    const navbar = document.getElementById('navbar');
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
-    const overlay = document.getElementById('overlay');
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('active');
+    }
 
+    // Mobile sidebar nested dropdown
+    const dropdownBtns = document.querySelectorAll('.sidebar .dropdown-btn');
+    dropdownBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const parent = btn.parentElement;
+        parent.classList.toggle('open');
+      });
+    });
+
+    // Navbar scroll effect
     window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 50);
-    });
-
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      overlay.classList.toggle('show');
-    });
-
-    overlay.addEventListener('click', () => {
-      navLinks.classList.remove('active');
-      overlay.classList.remove('show');
-      closeAllMenus();
-    });
-
-    document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
-      toggle.addEventListener('click', (e) => {
-        if (window.innerWidth <= 768) {
-          e.preventDefault();
-          const menu = toggle.nextElementSibling;
-          menu.classList.toggle('show');
-          closeOthers(menu, '.dropdown-menu');
-        }
-      });
-    });
-
-    document.querySelectorAll('.sub-dropdown > a').forEach(sub => {
-      sub.addEventListener('click', (e) => {
-        if (window.innerWidth <= 768) {
-          e.preventDefault();
-          const subMenu = sub.nextElementSibling;
-          subMenu.classList.toggle('show');
-          closeOthers(subMenu, '.sub-dropdown-menu');
-        }
-      });
-    });
-
-    function closeOthers(current, selector) {
-      document.querySelectorAll(selector).forEach(menu => {
-        if (menu !== current) menu.classList.remove('show');
-      });
-    }
-
-    function closeAllMenus() {
-      document.querySelectorAll('.dropdown-menu, .sub-dropdown-menu').forEach(menu => {
-        menu.classList.remove('show');
-      });
-    }
-
-    document.querySelectorAll('.nav-links > li > a:not(.dropdown-toggle)').forEach(link => {
-      link.addEventListener('click', () => {
-        if (window.innerWidth <= 768) {
-          navLinks.classList.remove('active');
-          overlay.classList.remove('show');
-          closeAllMenus();
-        }
-      });
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
     });
   </script>
-
 </body>
 </html>
-
-
-
 
 
 <section id="hero-slider-section">
@@ -478,21 +649,18 @@ color:#333; position:relative; overflow:hidden;"> -->
       color: #fff; 
       padding: 20px; 
     }
- .hero-slider .slide-description { 
-  font-size: 1.2rem; 
-  margin-bottom: 2rem; 
-}
-
-.hero-slider .slide-button {
-  display: inline-block;
-  background: rgb(242, 77, 41); /* Updated background color */
-  color: #fff;
-  padding: 12px 40px;
-  border-radius: 25px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background 0.3s ease;
-}
+    .hero-slider .slide-title { font-size: 3rem; margin-bottom: 1rem; font-weight: 700; }
+    .hero-slider .slide-description { font-size: 1.2rem; margin-bottom: 2rem; }
+    .hero-slider .slide-button {
+      display: inline-block;
+      background: brown;
+      color: #fff;
+      padding: 12px 40px;
+      border-radius: 25px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
     .hero-slider .slide-button:hover { background: #a52a2a; }
 
     /* Tabs */
@@ -522,62 +690,62 @@ color:#333; position:relative; overflow:hidden;"> -->
     .fade-in-up { opacity:0; animation:fadeInUp 1s ease-out forwards; }
   </style>
 
-<!-- Hero Slider -->
-<div class="hero-slider swiper">
-  <div class="swiper-wrapper">
-    <!-- Slide 1 -->
-    <div class="swiper-slide" style="background-image:url('images/HERO_333.jpg')">
-      <div class="slide-content">
-        <h2 class="slide-title">Aquagreen – Water Treatment Excellence</h2>
-        <p class="slide-description">Providing advanced solutions for clean, safe, and sustainable water treatment.</p>
-        <!-- <a href="product.html" class="slide-button">Explore Solutions</a> -->
+  <!-- Hero Slider -->
+  <div class="hero-slider swiper">
+    <div class="swiper-wrapper">
+      <!-- Slide 1 -->
+      <div class="swiper-slide" style="background-image:url('images/HERO_222.jpg')">
+        <div class="slide-content">
+          <h2 class="slide-title">Concrete Design Excellence</h2>
+          <p class="slide-description">Discover the best quality paver blocks and chequered tiles crafted for durability and aesthetics.</p>
+          <a href="product.html" class="slide-button">Learn More</a>
+        </div>
+      </div>
+      <!-- Slide 2 -->
+      <div class="swiper-slide" style="background-image:url('images/HERO_444.jpg')">
+        <div class="slide-content">
+          <h2 class="slide-title">Engineered for Strength</h2>
+          <p class="slide-description">Precision manufacturing for top-tier concrete solutions in modern construction.</p>
+          <a href="product.html" class="slide-button">Learn More</a>
+        </div>
+      </div>
+      <!-- Slide 3 -->
+      <div class="swiper-slide" style="background-image:url('images/HERO_333.jpg')">
+        <div class="slide-content">
+          <h2 class="slide-title">Heavy Duty Blocks</h2>
+          <p class="slide-description">Ideal for outdoor applications with long-lasting resistance to weather and wear.</p>
+          <a href="product.html" class="slide-button">Learn More</a>
+        </div>
+      </div>
+      <!-- Slide 4 -->
+      <div class="swiper-slide" style="background-image:url('images/000555.webp')">
+        <div class="slide-content">
+          <h2 class="slide-title">Modern Urban Aesthetics</h2>
+          <p class="slide-description">Stylish patterns that redefine landscaping and public infrastructure.</p>
+          <a href="product.html" class="slide-button">Learn More</a>
+        </div>
+      </div>
+      <!-- Slide 5 -->
+      <div class="swiper-slide" style="background-image:url('images/Banner__1.png')">
+        <div class="slide-content">
+          <h2 class="slide-title">Eco-Friendly Concrete</h2>
+          <p class="slide-description">Innovative products that are sustainable and environmentally conscious.</p>
+          <a href="product.html" class="slide-button">Learn More</a>
+        </div>
       </div>
     </div>
-    <!-- Slide 2 -->
-    <div class="swiper-slide" style="background-image:url('images/HERO_222.jpg')">
-      <div class="slide-content">
-        <h2 class="slide-title">Engineered for Pure Water</h2>
-        <p class="slide-description">Innovative treatment systems ensuring purity, safety, and reliability for industries and communities.</p>
-        <!-- <a href="product.html" class="slide-button">Learn More</a> -->
-      </div>
-    </div>
-    <!-- Slide 3 -->
-    <div class="swiper-slide" style="background-image:url('images/HOME___555.jpg')">
-      <div class="slide-content">
-        <h2 class="slide-title">Sustainable Wastewater Solutions</h2>
-        <p class="slide-description">Smart wastewater treatment that protects the environment and promotes reuse.</p>
-        <!-- <a href="product.html" class="slide-button">View Services</a> -->
-      </div>
-    </div>
-    <!-- Slide 4 -->
-    <div class="swiper-slide" style="background-image:url('images/HERO_666666.jpg')">
-      <div class="slide-content">
-        <h2 class="slide-title">Innovative Environmental Engineering</h2>
-        <p class="slide-description">Redefining water management with eco-friendly, future-ready technologies.</p>
-        <!-- <a href="product.html" class="slide-button">Discover More</a> -->
-      </div>
-    </div>
-    <!-- Slide 5 -->
-    <div class="swiper-slide" style="background-image:url('images/HERO__0077.jpg')">
-      <div class="slide-content">
-        <h2 class="slide-title">Aquagreen – For a Cleaner Tomorrow</h2>
-        <p class="slide-description">Committed to delivering sustainable water and wastewater solutions worldwide.</p>
-        <!-- <a href="product.html" class="slide-button">Get Started</a> -->
-      </div>
-    </div>
-  </div>
 
-  <!-- Slider Tabs -->
-  <div class="slider-controls">
-    <ul class="slider-pagination">
-      <li class="slider-tab current">Water Treatment</li>
-      <li class="slider-tab">Purification Systems</li>
-      <li class="slider-tab">Wastewater Solutions</li>
-      <li class="slider-tab">Environmental Engineering</li>
-      <li class="slider-tab">Sustainability</li>
-    </ul>
+    <!-- Slider Tabs -->
+    <div class="slider-controls">
+      <ul class="slider-pagination">
+        <li class="slider-tab current">Design & Quality</li>
+        <li class="slider-tab">Engineering Strength</li>
+        <li class="slider-tab">Heavy Use Cases</li>
+        <li class="slider-tab">Urban Landscaping</li>
+        <li class="slider-tab">Eco Solutions</li>
+      </ul>
+    </div>
   </div>
-</div>
 
   <!-- Swiper + GSAP -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -621,26 +789,21 @@ color:#333; position:relative; overflow:hidden;"> -->
 <!-- Add Font Awesome (in <head> of your HTML) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<section id="about-us" style="width:100%; padding:100px 20px; font-family:'Poppins', sans-serif; 
-background: linear-gradient(135deg, #e6f2ff 0%, #f9f9f9 100%), url('https://www.transparenttextures.com/patterns/cubes.png');
-background-size: cover;
-color:#333; position:relative; overflow:hidden;">
-
+<section id="about-us" style="width:100%; padding:100px 20px; font-family:'Poppins', sans-serif; background:linear-gradient(135deg,#f9f9f9,#fff); color:#333; position:relative; overflow:hidden;">
 
   <!-- Title -->
   <div style="text-align:center; max-width:900px; margin:0 auto 60px;">
-    <h2 style="font-size:2.8rem; font-weight:700; color:#F24D29; position:relative; display:inline-block;">
+    <h2 style="font-size:2.8rem; font-weight:700; color:#0BA34E; position:relative; display:inline-block;">
       About Us
-      <span style="position:absolute; bottom:-8px; left:50%; transform:translateX(-50%); width:60%; height:4px; background:#6CC04A; border-radius:2px;"></span>
+      <span style="position:absolute; bottom:-8px; left:50%; transform:translateX(-50%); width:60%; height:4px; background:#0BA34E; border-radius:2px;"></span>
     </h2>
-<p style="font-size:1.1rem; line-height:1.8; color:#555; margin-top:25px;">
-  <b style="color:#8DC63F;">Aquagreen Tech Solutions (AGTS)</b> creates sustainable, innovative, and eco-friendly solutions in 
-  <b>water treatment, wastewater treatment, energy management, water audits, industrial fabrication</b>, and <b>treatment chemicals</b>.
-  <br><br>
-  Guided by <b style="color:#007ACC;">Towards Sustainability</b>, we protect natural resources for future generations.  
-  <i style="color:#1C2A5B; display:block; margin-top:10px;">...because we care for you!</i>
-</p>
-
+    <p style="font-size:1.1rem; line-height:1.8; color:#555; margin-top:25px;">
+      <b style="color:#0BA34E;">Aquagreen Tech Solutions (AGTS)</b> creates sustainable, innovative, and eco-friendly solutions in 
+      <b>water treatment, wastewater treatment, energy management, water audits, industrial fabrication</b>, and <b>treatment chemicals</b>.
+      <br><br>
+      Guided by <b style="color:#0BA34E;">“Reduce • Recycle • Reuse”</b>, we protect natural resources for future generations.  
+      <i style="color:#888; display:block; margin-top:10px;">...because we care for you!</i>
+    </p>
   </div>
 
   <!-- Content Grid -->
@@ -652,9 +815,9 @@ color:#333; position:relative; overflow:hidden;">
       <div style="position:absolute; inset:0; background:#fff; padding:30px 20px; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; transition:opacity 0.5s ease;">
         
         <!-- Icon -->
-        <i class="fa-solid fa-award" style="font-size:2.5rem; color:#6CC04A; margin-bottom:15px;"></i>
+        <i class="fa-solid fa-award" style="font-size:2.5rem; color:#0BA34E; margin-bottom:15px;"></i>
         
-        <h3 style="font-size:1.6rem; font-weight:600; margin-bottom:20px; color:#6CC04A;">Recognitions</h3>
+        <h3 style="font-size:1.6rem; font-weight:600; margin-bottom:20px; color:#0BA34E;">Recognitions</h3>
         <p style="font-size:1rem; line-height:1.8; color:#444; text-align:left; margin:0;">
           We are proudly licensed by the Maharashtra Pollution Control Board, have obtained Consent to Establish, and maintain Consent to Operate, which is renewable periodically.
         </p>
@@ -667,9 +830,9 @@ color:#333; position:relative; overflow:hidden;">
       <div style="position:absolute; inset:0; background:#fff; padding:30px 20px; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; transition:opacity 0.5s ease;">
         
         <!-- Icon -->
-        <i class="fa-solid fa-industry" style="font-size:2.5rem; color:#00CFFF; margin-bottom:15px;"></i>
+        <i class="fa-solid fa-industry" style="font-size:2.5rem; color:#0BA34E; margin-bottom:15px;"></i>
         
-        <h3 style="font-size:1.6rem; font-weight:600; margin-bottom:20px; color:#00CFFF;">Industries We Serve</h3>
+        <h3 style="font-size:1.6rem; font-weight:600; margin-bottom:20px; color:#0BA34E;">Industries We Serve</h3>
         <p style="font-size:1rem; line-height:1.8; color:#444; text-align:left; margin:0;">
           We provide solutions to a wide range of industries, including traders, manufacturing industries, IT parks, housing societies, hospitals, and hotels.
         </p>
@@ -682,9 +845,9 @@ color:#333; position:relative; overflow:hidden;">
       <div style="position:absolute; inset:0; background:#fff; padding:30px 20px; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; transition:opacity 0.5s ease;">
         
         <!-- Icon -->
-        <i class="fa-solid fa-leaf" style="font-size:2.5rem; color:#3A8E3D; margin-bottom:15px;"></i>
+        <i class="fa-solid fa-leaf" style="font-size:2.5rem; color:#0BA34E; margin-bottom:15px;"></i>
         
-        <h3 style="font-size:1.6rem; font-weight:600; margin-bottom:20px; color:#3A8E3D;">Our Commitment</h3>
+        <h3 style="font-size:1.6rem; font-weight:600; margin-bottom:20px; color:#0BA34E;">Our Commitment</h3>
         <p style="font-size:1rem; line-height:1.8; color:#444; text-align:left; margin:0;">
           We embrace sustainable technologies to provide safe, efficient, and eco-friendly water and energy solutions that shape a greener tomorrow. 
         </p>
@@ -723,6 +886,8 @@ color:#333; position:relative; overflow:hidden;">
     list-style-position: inside;
   }
 </style>
+
+
 
 
 
@@ -855,11 +1020,7 @@ color:#333; position:relative; overflow:hidden;">
 <!-- Include GSAP CDN -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-
-<section style="padding: 100px 20px; font-family: 'Poppins', sans-serif; position: relative; overflow: hidden;
-background: linear-gradient(135deg, #e6f2ff 0%, #f9f9f9 100%), url('https://www.transparenttextures.com/patterns/cubes.png');
-background-size: cover; background-attachment: fixed; color:#333;">
+<section style="padding: 100px 20px;background: linear-gradient(135deg, #f9f9f9, #fff); font-family: 'Poppins', sans-serif; position: relative; overflow: hidden;">
 
   <!-- Heading Centered -->
   <div style="text-align:center; margin-bottom: 60px;">
@@ -906,57 +1067,6 @@ background-size: cover; background-attachment: fixed; color:#333;">
     </div>
   </div>
 
-  <!-- Button -->
-  <div style="text-align:center; margin-top:40px;">
-    <button id="viewAllBtn" style="padding:14px 32px; font-size:1rem; border:none; border-radius:8px;
-      background: linear-gradient(90deg, #0BA34E, #07d67a); color:white; font-weight:600; cursor:pointer;
-      box-shadow:0 4px 10px rgba(0,0,0,0.2); transition:0.3s;">
-      View All Clients
-    </button>
-  </div>
-
-  <!-- Hidden Grid Popup -->
-  <div id="clientsPopup" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.8); z-index:9999; overflow-y:auto; padding:60px 20px;">
-    <div style="max-width:1200px; margin:auto; background:white; border-radius:12px; padding:40px; position:relative;">
-      <button id="closePopup" style="position:absolute; top:20px; right:20px; background:#ff7b00; border:none; color:white;
-        padding:10px 18px; border-radius:6px; font-weight:bold; cursor:pointer;">Close ✕</button>
-      
-      <h3 style="text-align:center; font-size:2rem; font-weight:700; margin-bottom:30px; color:#0BA34E;">All Clients</h3>
-      
-      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:20px;">
-        <img src="images/Client_01.png">
-        <img src="images/Client_02.png">
-        <img src="images/Client_0003333.png">
-        <img src="images/Client_04.jpg">
-        <img src="images/Client_05.png">
-        <img src="images/Client_06.png">
-        <img src="images/Client_077.png">
-        <img src="images/Client_088.png">
-        <img src="images/Client_0999.png">
-        <img src="images/Client_10.png">
-        <img src="images/Client_11.png">
-        <img src="images/Client_12.png">
-        <img src="images/Client_13.png">
-        <img src="images/Client_14.png">
-        <img src="images/Client_15.jpg">
-        <img src="images/Client_16.jpg">
-        <img src="images/Client_17.png">
-        <img src="images/Client_18.jpg">
-        <img src="images/Client_19.png">
-        <img src="images/Client_20.png">
-        <img src="images/Client_21.png">
-        <img src="images/Client_22.png">
-        <img src="images/Client_23.jpg">
-        <img src="images/Client_24.jpg">
-        <img src="images/Client_25.png">
-        <img src="images/Client_27.jpg">
-        <img src="images/Client_29.png">
-      </div>
-    </div>
-  </div>
-
-</section>
-
 <style>
   .clients-slider {
     display: flex;
@@ -967,9 +1077,9 @@ background-size: cover; background-attachment: fixed; color:#333;">
   }
 
   .clients-slider img {
-    max-height: 150px;
+    max-height: 90px;
     object-fit: contain;
-    background: rgba(0,0,0,0.03);
+    background: rgba(0,0,0,0.03); /* subtle background on white */
     padding: 16px 28px;
     border-radius: 16px;
     border: 1px solid rgba(0,0,0,0.08);
@@ -984,21 +1094,6 @@ background-size: cover; background-attachment: fixed; color:#333;">
     filter: brightness(1.05);
   }
 
-  #clientsPopup img {
-    width: 100%;
-    max-height: 120px;
-    object-fit: contain;
-    border: 1px solid #eee;
-    padding: 10px;
-    border-radius: 8px;
-    background: #f9f9f9;
-    transition: transform 0.3s;
-  }
-
-  #clientsPopup img:hover {
-    transform: scale(1.1);
-  }
-
   @media (max-width: 768px) {
     .clients-slider {
       gap: 16px;
@@ -1009,6 +1104,8 @@ background-size: cover; background-attachment: fixed; color:#333;">
     }
   }
 </style>
+
+</section>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -1062,19 +1159,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   checkImagesLoaded();
-
-  // Popup Logic
-  const viewAllBtn = document.getElementById("viewAllBtn");
-  const popup = document.getElementById("clientsPopup");
-  const closePopup = document.getElementById("closePopup");
-
-  viewAllBtn.addEventListener("click", () => {
-    popup.style.display = "block";
-  });
-
-  closePopup.addEventListener("click", () => {
-    popup.style.display = "none";
-  });
 });
 </script>
 
@@ -1085,81 +1169,86 @@ document.addEventListener("DOMContentLoaded", () => {
 <section class="services-section">
   <h2>Our Products & Solutions</h2>
 
-  <div class="services-slider-wrapper">
-    <button class="services-scroll-btn left" onclick="scrollServices(-1)">&#10094;</button>
+  <div class="slider-wrapper">
+    <button class="scroll-btn left" onclick="scrollSlider(-1)">&#10094;</button>
 
     <div class="services-container" id="servicesSlider">
       <!-- Cards inserted by JS -->
     </div>
 
-    <button class="services-scroll-btn right" onclick="scrollServices(1)">&#10095;</button>
+    <button class="scroll-btn right" onclick="scrollSlider(1)">&#10095;</button>
   </div>
 
   <style>
-    /* === SERVICES SECTION ONLY === */
+/* Updated services section with white/light theme */
 .services-section {
   padding: 60px 20px;
-  background: linear-gradient(135deg, #8DC63F, #00AEEF); /* Green → Blue */
+ background: linear-gradient(135deg, #f9f9f9, #fff); /* Light neutral background */
   font-family: 'Poppins', sans-serif;
-  color: #fff; /* Text color updated for contrast */
+  color: #333;
 }
-
 
 .services-section h2 {
   text-align: center;
   font-size: 2.8rem;
   margin-bottom: 50px;
-  color: rgb(242, 77, 41);
+  background: linear-gradient(#00C851); /* Vibrant gradient for title */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-weight: 700;
 }
 
+/* Slider wrapper */
+.slider-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
 
-    .services-slider-wrapper {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .services-scroll-btn {
-      font-size: 2rem;
-      background: #fff;
-      border: none;
-      cursor: pointer;
-      padding: 12px 16px;
-      border-radius: 50%;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-      flex-shrink: 0;
-      transition: all 0.3s ease;
-    }
-
-    .services-scroll-btn:hover {
-      background: #e0e0e0;
-      transform: scale(1.1);
-    }
-
-    .services-container {
-      display: flex;
-      overflow-x: auto;
-      scroll-behavior: smooth;
-      gap: 25px;
-      padding: 10px 0;
-      flex: 1;
-    }
-
-    .services-container::-webkit-scrollbar {
-      display: none;
-    }
-
-    .services-card-wrapper {
-      min-width: 300px;
-      max-width: 330px;
-      flex-shrink: 0;
-      position: relative;
-    }
-
-.services-card {
-  height: 420px; /* increased card height */
+/* Scroll buttons */
+.scroll-btn {
+  font-size: 2rem;
   background: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 12px 16px;
+  border-radius: 50%;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.scroll-btn:hover {
+  background: #e0e0e0;
+  transform: scale(1.1);
+}
+
+/* Slider container */
+.services-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 25px;
+  padding: 10px 0;
+  flex: 1;
+}
+
+.services-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Card wrapper */
+.card-wrapper {
+  min-width: 300px;
+  max-width: 330px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* Card styling */
+.card {
+  height: 400px;
+  background: #fff; /* White card */
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
@@ -1169,48 +1258,51 @@ document.addEventListener("DOMContentLoaded", () => {
   flex-direction: column;
 }
 
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
+}
 
-    .services-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
-    }
-.services-card img {
+/* Card image */
+.card img {
   width: 100%;
-  height: 180px; /* increased image height */
+  height: 180px;
   object-fit: cover;
   border-bottom: 2px solid #e0e0e0;
   transition: transform 0.4s ease;
 }
 
-    .services-card:hover img {
-      transform: scale(1.05);
-    }
+.card:hover img {
+  transform: scale(1.05);
+}
 
-    .services-card-content {
-      padding: 20px;
-      flex-grow: 1;
-    }
+/* Card content */
+.card-content {
+  padding: 30px;
+  flex-grow: 1;
+}
 
-    .services-card-content h3 {
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-      color: #333;
-    }
+.card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  color: #333;
+}
 
-    .services-card-content p {
-      font-size: 0.9rem;
-      color: #555;
-    }
+.card p {
+  font-size: 0.95rem;
+  color: #555;
+}
 
-.services-view-button {
+/* View button */
+.view-button {
   position: absolute;
   bottom: -12px;
   left: 0;
   width: 100%;
   text-align: center;
-  background: linear-gradient(135deg, rgb(242, 77, 41), #d93b1d);
+  background: linear-gradient(#00C851); /* Blue-green gradient button */
   color: #fff;
-  padding: 12px;
+  padding: 14px;
   font-weight: bold;
   cursor: pointer;
   text-decoration: none;
@@ -1219,173 +1311,185 @@ document.addEventListener("DOMContentLoaded", () => {
   transition: opacity 0.3s ease, bottom 0.3s ease;
 }
 
+.card-wrapper:hover .view-button {
+  opacity: 1;
+  bottom: 0;
+}
 
-    .services-card-wrapper:hover .services-view-button {
-      opacity: 1;
-      bottom: 0;
-    }
-
+/* Responsive adjustments */
 @media (max-width: 600px) {
-  .services-card {
-    height: 380px; /* slightly taller on small screens too */
+  .scroll-btn {
+    display: none;
   }
-  .services-card img {
+  .card {
+    height: 360px;
+  }
+  .card img {
     height: 160px;
   }
 }
+
+
   </style>
 
   <script>
-const services = [
-  {
-    title: "Ozone System",
-    image: "images/OZON_01.jpg",
-    link: "MAC_DERMIDE.html",
-    description: "The Ozone system reduces organic matter, COD/BOD load, disinfects odour & colour. It generates ozone using UV or corona discharge and oxidizes pollutants effectively."
-  },
-  {
-    title: "Ultrafiltration (UF) System",
-    image: "images/02.jpg",
-    link: "Orafol.html",
-    description: "Low-maintenance membrane process that removes bacteria, viruses & colloidal matter. Produces consistent water quality with 90–100% pathogen removal."
-  },
-  {
-    title: "Water Treatment Plant",
-    image: "images/03.jpg",
-    link: "3M.html",
-    description: "Advanced oxidation systems for safe drinking water. Combines coagulation, filtration & disinfection with UF/NF/RO for pure, healthy water."
-  },
-  {
-    title: "DM Plant",
-    image: "images/04.jpg",
-    link: "Sabic.html",
-    description: "Cutting-edge technology to remove impurities for industrial & human consumption. Built with durability & compliance in mind, backed by full support & AMC."
-  },
-  {
-    title: "Reverse Osmosis (RO) Plant",
-    image: "images/05.jpg",
-    link: "Stretching.html",
-    description: "Durable & low maintenance, Smart monitoring & alerts, Energy-efficient operation, Removes 99% contaminants."
-  },
-  {
-    title: "Water Softener",
-    image: "images/06.jpg",
-    link: "Exposing.html",
-    description: "Ion exchange resin-based softening system with regeneration & brine tanks. Ensures scale-free, smooth water for industrial & domestic use."
-  },
-  {
-    title: "Effluent Treatment Plant (ETP)",
-    image: "images/07.jpg",
-    link: "MAchine_Stre.html",
-    description: "Employs MBBR, MBR, SBR & FAB technologies for industrial effluent purification, ensuring compliance with environmental standards."
-  },
-  {
-    title: "Multi Effect Evaporator (MEE)",
-    image: "images/08.JPG",
-    link: "Machines_EXPO.html",
-    description: "End-to-end maintenance of WTP, STP, ETP, MEE, RO & UF systems for continuous, efficient operations."
-  },
-  {
-    title: "Sewage Treatment Plant (STP)",
-    image: "images/09.jpg",
-    link: "Nittoku.html",
-    description: "Multi-stage process with ASP, MBBR, MBR, SBR & RBC. Energy-efficient, modular, and designed for safe water reuse."
-  },
-  {
-    title: "Clarifiers",
-    image: "images/10.JPG",
-    link: "Print_color.html",
-    description: "Gravity settling system for suspended solids, producing sludge & scum removal with enhanced coagulants."
-  },
-  {
-    title: "Dissolved Air Flotation (DAF)",
-    image: "images/12.jpg",
-    link: "Yessor.html",
-    description: "Removes oils & solids by tiny air bubbles. Widely used in Dairy, Paper, Oil, Refineries & Textile industries."
-  },
-  {
-    title: "Wet Fume Scrubber",
-    image: "images/11.jpg",
-    link: "Sansui.html",
-    description: "Neutralizes corrosive gases & particulate matter in compact installations. Safe handling of high-temp gas streams."
-  },
-  {
-    title: "Central Ground Water Authority (CGWA) NOC",
-    image: "images/CGWA.jpg",
-    link: "NittoL.html",
-    description: "NOC facilitation for industries, borewells & authorized water suppliers for ground water extraction."
-  },
-  {
-    title: "Water & Waste Water Treatment Chemicals",
-    image: "images/CHEMICAL.jpg",
-    link: "NittoL.html",
-    description: "Lime/alum replacement, boiler & cooling tower chemicals, RO antiscalants, odor removers, bio-cultures & flocculants."
-  },
-  {
-    title: "Environmental Monitoring",
-    image: "images/16.jpg",
-    link: "NittoL.html",
-    description: "Ambient Air & Noise Monitoring, Stack Emission, Ventilation survey, DG Noise monitoring, STP/ETP sample analysis."
-  },
-  {
-    title: "Extended Producer Responsibility (EPR)",
-    image: "images/1111111.jpg",
-    link: "Avery.html",
-    description: "Registrations & compliance services for Plastic Waste, E-Waste & Battery Waste management."
+    const services = [
+      {
+        title: "Ozone System",
+        image: "images/OZON_01.jpg",
+        link: "MAC_DERMIDE.html",
+        description: "The Ozone system reduces organic matter, COD/BOD load, disinfects odour & colour. It generates ozone using UV or corona discharge and oxidizes pollutants effectively."
+      },
+      {
+        title: "Ultrafiltration (UF) System ",
+        image: "images/02.jpg",
+        link: "Orafol.html",
+        description: "Low-maintenance membrane process that removes bacteria, viruses & colloidal matter. Produces consistent water quality with 90–100% pathogen removal."
+      },
+      {
+        title: "Water Treatment Plant",
+        image: "images/03.jpg",
+        link: "3M.html",
+        description: "Advanced oxidation systems for safe drinking water. Combines coagulation, filtration & disinfection with UF/NF/RO for pure, healthy water."
+      },
+      {
+        title: "DM Plant",
+        image: "images/04.jpg",
+        link: "Sabic.html",
+        description: "Cutting-edge technology to remove impurities for industrial & human consumption. Built with durability & compliance in mind, backed by full support & AMC."
+      },
+       {
+        title: "Reverse Osmosis (RO) Plant ",
+        image: "images/05.jpg",
+        link: "Stretching.html",
+        description: "Durable & low maintenance,Smart monitoring & alerts,Energy-efficient operation,Removes 99% contaminants."
+      },
+      {
+        title: "Water Softener",
+        image: "images/06.jpg",
+        link: "Exposing.html",
+        description: "Ion exchange resin-based softening system with regeneration & brine tanks. Ensures scale-free, smooth water for industrial & domestic use."
+      },
+      {
+        title: "Effluent Treatment Plant (ETP) ",
+        image: "images/07.jpg",
+        link: "MAchine_Stre.html",
+        description: "Employs MBBR, MBR, SBR & FAB technologies for industrial effluent purification, ensuring compliance with environmental standards."
+      },
+      {
+        title: "Multi Effect Evaporator (MEE)",
+        image: "images/08.JPG",
+        link: "Machines_EXPO.html",
+        description: "End-to-end maintenance of WTP, STP, ETP, MEE, RO & UF systems for continuous, efficient operations."
+      },
+      {
+        title: "Sewage Treatment Plant (STP)",
+        image: "images/09.jpg",
+        link: "Nittoku.html",
+        description: "Multi-stage process with ASP, MBBR, MBR, SBR & RBC. Energy-efficient, modular, and designed for safe water reuse."
+      },
+      {
+        title: "Clarifiers",
+        image: "images/10.JPG",
+        link: "Print_color.html",
+        description: "Gravity settling system for suspended solids, producing sludge & scum removal with enhanced coagulants."
+      },
+      {
+        title: "Dissolved Air Flotation (DAF) ",
+        image: "images/12.jpg",
+        link: "Yessor.html",
+        description: "Removes oils & solids by tiny air bubbles. Widely used in Dairy, Paper, Oil, Refineries & Textile industries."
+      },
+      {
+        title: "Wet Fume Scrubber ",
+        image: "images/11.jpg",
+        link: "Sansui.html",
+        description: "Neutralizes corrosive gases & particulate matter in compact installations. Safe handling of high-temp gas streams."
+      },
+      {
+        title: "Central Ground Water Authority (CGWA) NOC",
+        image: "images/CGWA.jpg",
+        link: "NittoL.html",
+        description: "NOC facilitation for industries, borewells & authorized water suppliers for ground water extraction."
+      },
+            {
+        title: "Water & Waste Water Treatment Chemicals",
+        image: "images/CHEMICAL.jpg",
+        link: "NittoL.html",
+        description: "Lime/alum replacement, boiler & cooling tower chemicals, RO antiscalants, odor removers, bio-cultures & flocculants."
+      },
+            {
+        title: "Environmental Monitoring",
+        image: "images/16.jpg",
+        link: "NittoL.html",
+        description: "Ambient Air & Noise Monitoring, Stack Emission, Ventilation survey, DG Noise monitoring, STP/ETP sample analysis."
+      },
+      {
+        title: "Extended Producer Responsibility (EPR)",
+        image: "images/1111111.jpg",
+        link: "Avery.html",
+        description: "Registrations & compliance services for Plastic Waste, E-Waste & Battery Waste management."
+      }
+    ];
+
+  const slider = document.getElementById('servicesSlider');
+services.forEach(service => {
+  const wrapper = document.createElement('div');
+  wrapper.className = 'card-wrapper';
+
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `
+    <img src="${service.image}" alt="${service.title}" />
+    <div class="card-content">
+      <h3>${service.title}</h3>
+      <p>${service.description}</p>
+    </div>
+  `;
+
+  // ✅ Link all View buttons to PRODUCT.html
+  const viewBtn = document.createElement('a');
+  viewBtn.href = "PRODUCT.html"; 
+  viewBtn.className = 'view-button';
+  viewBtn.textContent = 'View';
+
+  wrapper.appendChild(card);
+  wrapper.appendChild(viewBtn);
+
+  slider.appendChild(wrapper);
+});
+
+// Manual scroll
+function scrollSlider(direction) {
+  const scrollAmount = 340;
+  slider.scrollLeft += direction * scrollAmount;
+}
+
+// ✅ Auto-scroll every 3 seconds
+let autoScroll = setInterval(() => {
+  if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
+    // Reset to start when reaching the end
+    slider.scrollLeft = 0;
+  } else {
+    slider.scrollLeft += 340;
   }
-];
+}, 2000);
 
-    const slider = document.getElementById('servicesSlider');
-    services.forEach(service => {
-      const wrapper = document.createElement('div');
-      wrapper.className = 'services-card-wrapper';
 
-      const card = document.createElement('div');
-      card.className = 'services-card';
-      card.innerHTML = `
-        <img src="${service.image}" alt="${service.title}" />
-        <div class="services-card-content">
-          <h3>${service.title}</h3>
-          <p>${service.description}</p>
-        </div>
-      `;
-
-      const viewBtn = document.createElement('a');
-      viewBtn.href = "PRODUCT.html";
-      viewBtn.className = 'services-view-button';
-      viewBtn.textContent = 'View';
-
-      wrapper.appendChild(card);
-      wrapper.appendChild(viewBtn);
-      slider.appendChild(wrapper);
-    });
-
-    function scrollServices(direction) {
-      const scrollAmount = 340;
-      slider.scrollLeft += direction * scrollAmount;
-    }
-
-    let autoScroll = setInterval(() => {
+  // (Optional) Pause auto-scroll on hover
+  slider.addEventListener("mouseenter", () => clearInterval(autoScroll));
+  slider.addEventListener("mouseleave", () => {
+    autoScroll = setInterval(() => {
       if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
         slider.scrollLeft = 0;
       } else {
         slider.scrollLeft += 340;
       }
     }, 2000);
-
-    slider.addEventListener("mouseenter", () => clearInterval(autoScroll));
-    slider.addEventListener("mouseleave", () => {
-      autoScroll = setInterval(() => {
-        if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
-          slider.scrollLeft = 0;
-        } else {
-          slider.scrollLeft += 340;
-        }
-      }, 2000);
-    });
+  });
   </script>
+  
 </section>
-
 
 
 
@@ -1398,87 +1502,78 @@ const services = [
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
 <!-- Testimonial Section -->
-<section id="testimonials" style="
-  background: linear-gradient(135deg, #e6f2ff 0%, #f9f9f9 100%), url('https://www.transparenttextures.com/patterns/cubes.png');
-  background-size: cover; 
-  background-attachment: fixed;
-  color:#333; 
-  font-family:'Poppins', sans-serif; 
-  padding:100px 20px; 
-  position:relative; 
-  overflow:hidden;
-">
+<section id="testimonials" style="background:linear-gradient(135deg, #f9f9f9, #fff); color:#333; font-family:'Poppins', sans-serif; padding:100px 20px; position:relative; overflow:hidden;">
   <div style="max-width:1300px; margin:auto;">
     
     <!-- Section Title -->
-<h2 style="text-align:center; font-size:3rem; font-weight:700; 
-   color: rgb(242, 77, 41);
-   margin-bottom:70px; letter-spacing:1px;">
-  What Our Clients Say
-</h2>
-
+    <h2 style="text-align:center; font-size:3rem; font-weight:700; 
+       background: linear-gradient(90deg, #0BA34E, #07d67a); 
+       -webkit-background-clip:text; -webkit-text-fill-color:transparent; 
+       margin-bottom:70px; letter-spacing:1px;">
+      What Our Clients Say
+    </h2>
 
     <!-- Swiper -->
     <div class="swiper testimonial-swiper" style="padding-bottom:70px;">
       <div class="swiper-wrapper">
 
-        <!-- CARD TEMPLATE -->
-        <div class="swiper-slide testimonial-card">
-          <p>
-            ⭐⭐⭐⭐⭐ Rajesh K. – Factory Owner<br>
-            "Aquagreen Tech Solutions helped us reduce water wastage significantly with their advanced wastewater treatment systems. Truly a reliable partner."
-          </p>
-        </div>
+       <!-- CARD TEMPLATE FOR AQUAGREEN -->
+<div class="swiper-slide testimonial-card" style="background:#fff; border-radius:20px; padding:40px; box-shadow:0 8px 25px rgba(0,0,0,0.08); color:#333;">
+  <p>
+    ⭐⭐⭐⭐⭐ Rajesh K. – Factory Owner<br>
+    "Aquagreen Tech Solutions helped us reduce water wastage significantly with their advanced wastewater treatment systems. Truly a reliable partner."
+  </p>
+</div>
 
-        <div class="swiper-slide testimonial-card">
-          <p>
-            ⭐⭐⭐⭐⭐ Priya S. – Entrepreneur<br>
-            "Their sustainable solutions in energy and water management have cut down our operational costs and improved efficiency. Highly recommended!"
-          </p>
-        </div>
+<div class="swiper-slide testimonial-card alt" style="background:#fafafa; border-radius:20px; padding:40px; box-shadow:0 8px 25px rgba(0,0,0,0.05); color:#333;">
+  <p>
+    ⭐⭐⭐⭐⭐ Priya S. – Entrepreneur<br>
+    "Their sustainable solutions in energy and water management have cut down our operational costs and improved efficiency. Highly recommended!"
+  </p>
+</div>
 
-        <div class="swiper-slide testimonial-card">
-          <p>
-            ⭐⭐⭐⭐⭐ Vinod P. – Industrial Client<br>
-            "The team at Aquagreen guided us with practical water audits and implemented eco-friendly solutions that boosted our compliance and savings."
-          </p>
-        </div>
+<div class="swiper-slide testimonial-card" style="background:#fff; border-radius:20px; padding:40px; box-shadow:0 8px 25px rgba(0,0,0,0.08); color:#333;">
+  <p>
+    ⭐⭐⭐⭐⭐ Vinod P. – Industrial Client<br>
+    "The team at Aquagreen guided us with practical water audits and implemented eco-friendly solutions that boosted our compliance and savings."
+  </p>
+</div>
 
-        <div class="swiper-slide testimonial-card">
-          <p>
-            ⭐⭐⭐⭐⭐ Shweta L. – Startup Founder<br>
-            "We partnered with Aquagreen for industrial fabrication and water treatment chemicals. Their expertise and support made our project smooth and sustainable."
-          </p>
-        </div>
+<div class="swiper-slide testimonial-card alt" style="background:#fafafa; border-radius:20px; padding:40px; box-shadow:0 8px 25px rgba(0,0,0,0.05); color:#333;">
+  <p>
+    ⭐⭐⭐⭐⭐ Shweta L. – Startup Founder<br>
+    "We partnered with Aquagreen for industrial fabrication and water treatment chemicals. Their expertise and support made our project smooth and sustainable."
+  </p>
+</div>
 
-        <div class="swiper-slide testimonial-card">
-          <p>
-            ⭐⭐⭐⭐⭐ Deepak M. – Manufacturing Unit Owner<br>
-            "Thanks to Aquagreen’s innovative solutions, we achieved zero liquid discharge in our plant. A true leader in environmental responsibility."
-          </p>
-        </div>
+<div class="swiper-slide testimonial-card" style="background:#fff; border-radius:20px; padding:40px; box-shadow:0 8px 25px rgba(0,0,0,0.08); color:#333;">
+  <p>
+    ⭐⭐⭐⭐⭐ Deepak M. – Manufacturing Unit Owner<br>
+    "Thanks to Aquagreen’s innovative solutions, we achieved zero liquid discharge in our plant. A true leader in environmental responsibility."
+  </p>
+</div>
 
-        <div class="swiper-slide testimonial-card">
-          <p>
-            ⭐⭐⭐⭐⭐ Anjali P. – Fashion Industry<br>
-            "Aquagreen’s water recycling system has been a game-changer for our textile unit. Sustainable and cost-effective at the same time."
-          </p>
-        </div>
+<div class="swiper-slide testimonial-card alt" style="background:#fafafa; border-radius:20px; padding:40px; box-shadow:0 8px 25px rgba(0,0,0,0.05); color:#333;">
+  <p>
+    ⭐⭐⭐⭐⭐ Anjali P. – Fashion Industry<br>
+    "Aquagreen’s water recycling system has been a game-changer for our textile unit. Sustainable and cost-effective at the same time."
+  </p>
+</div>
 
-        <div class="swiper-slide testimonial-card">
-          <p>
-            ⭐⭐⭐⭐⭐ Rohit S. – Event Management<br>
-            "We rely on Aquagreen’s water treatment chemicals for all our large-scale projects. The quality and service are unmatched."
-          </p>
-        </div>
+<div class="swiper-slide testimonial-card" style="background:#fff; border-radius:20px; padding:40px; box-shadow:0 8px 25px rgba(0,0,0,0.08); color:#333;">
+  <p>
+    ⭐⭐⭐⭐⭐ Rohit S. – Event Management<br>
+    "We rely on Aquagreen’s water treatment chemicals for all our large-scale projects. The quality and service are unmatched."
+  </p>
+</div>
 
-        <div class="swiper-slide testimonial-card">
-          <p>
-            ⭐⭐⭐⭐⭐ Kavita G. – Eco Entrepreneur<br>
-            "Aquagreen’s honesty, transparency, and commitment to sustainability make them more than just a service provider – they are partners in progress."
-          </p>
-        </div>
-      </div>
+<div class="swiper-slide testimonial-card alt" style="background:#fafafa; border-radius:20px; padding:40px; box-shadow:0 8px 25px rgba(0,0,0,0.05); color:#333;">
+  <p>
+    ⭐⭐⭐⭐⭐ Kavita G. – Eco Entrepreneur<br>
+    "Aquagreen’s honesty, transparency, and commitment to sustainability make them more than just a service provider – they are partners in progress."
+  </p>
+</div>
+
 
       <!-- Pagination Dots -->
       <div class="swiper-pagination" style="margin-top:30px;"></div>
@@ -1492,45 +1587,27 @@ const services = [
 <style>
   /* Testimonial Card Styling */
   .testimonial-card {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: left;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     padding: 30px;
+    text-align: center;
     font-size: 1rem;
     line-height: 1.6;
-    min-height: 250px; /* ✅ equal card height */
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    backdrop-filter: blur(12px);
     transition: all 0.3s ease;
-  }
-
-  .testimonial-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
-  }
-
-  .testimonial-card p {
-    margin: 0;
-    font-size: 1rem;
-    color: #333;
-    display: -webkit-box;
-    -webkit-line-clamp: 7; /* ✅ keeps all texts balanced */
-    -webkit-box-orient: vertical;
-    overflow: hidden;
   }
 
   /* Pagination Dots */
   .swiper-pagination-bullet {
     background: #2ba56a;
-    opacity: 0.4;
+    opacity: 0.5;
     transition: all 0.3s ease;
   }
   .swiper-pagination-bullet-active {
     opacity: 1;
     background: #2ba56a;
-    transform: scale(1.2);
   }
 </style>
 
@@ -1539,7 +1616,7 @@ const services = [
   var swiper = new Swiper(".testimonial-swiper", {
     loop: true,
     autoplay: {
-      delay: 3500,
+      delay: 3000,
       disableOnInteraction: false,
     },
     pagination: {
@@ -1559,7 +1636,6 @@ const services = [
     }
   });
 </script>
-
 
 
 <!-- //////////////////////////////// OUR CLIENT////////////////////////////// -->
@@ -1600,21 +1676,12 @@ const services = [
 </style>
 
 <!-- Achievements Section -->
-<section id="achievements" style="
-  background: linear-gradient(135deg, #e6f2ff 0%, #f9f9f9 100%), url('https://www.transparenttextures.com/patterns/cubes.png');
-  background-size: cover; 
-  background-attachment: fixed;
-  color:#333; 
-  font-family:'Poppins', sans-serif; 
-  padding:80px 20px; 
-  overflow:hidden;
-">
-
+<section id="achievements" style="background: linear-gradient(135deg, #f9f9f9, #fff); color:#333; font-family:'Poppins', sans-serif; padding:80px 20px; overflow:hidden;">
   <div style="max-width:1200px; margin:auto;">
 
     <!-- Title -->
     <h2 style="text-align:center; font-size:2.5rem; font-weight:700;  
-      background: linear-gradient(135deg, rgb(242, 77, 41), #d93b1d);
+       background: linear-gradient(90deg, #0BA34E, #07d67a); 
        -webkit-background-clip:text; -webkit-text-fill-color:transparent; 
        margin-bottom:50px;">
       We Successfully Achieved...!
@@ -1692,7 +1759,7 @@ const services = [
   margin: 40px 0;
   padding: 0;
 }
-/* Vertical line */
+/* Vertical line (animated via --line-height) */
 .timeline::before {
   content: '';
   position: absolute;
@@ -1700,8 +1767,8 @@ const services = [
   left: 50%;
   transform: translateX(-50%);
   width: 6px;
-  height: var(--line-height, 0);
-  background: linear-gradient(to bottom, #F24D29, #6CC04A, #00CFFF, #3A8E3D);
+  height: var(--line-height, 0); /* animated with JS */
+  background: linear-gradient(to bottom, #0BA34E, #07D67A);
   border-radius: 3px;
   transition: height 0.2s linear;
 }
@@ -1716,14 +1783,26 @@ const services = [
   transform: translateY(50px);
   transition: all 0.8s ease;
 }
+
+/* Show on scroll */
 .timeline-item.show {
   opacity: 1;
   transform: translateY(0);
 }
-.timeline-item:nth-child(odd) { left: 0; text-align: right; }
-.timeline-item:nth-child(even) { left: 50%; text-align: left; }
 
-/* Timeline icons — assign different brand colors by nth-child */
+/* Odd (left side) */
+.timeline-item:nth-child(odd) {
+  left: 0;
+  text-align: right;
+}
+
+/* Even (right side) */
+.timeline-item:nth-child(even) {
+  left: 50%;
+  text-align: left;
+}
+
+/* Timeline icon */
 .timeline-icon {
   position: absolute;
   top: 20px;
@@ -1731,43 +1810,45 @@ const services = [
   height: 44px;
   border-radius: 50%;
   background: #fff;
+  color: #0BA34E;
+  border: 3px solid #0BA34E;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.4rem;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.9);
   z-index: 5;
-  transition: all 0.3s ease;
 }
-.timeline-item:nth-child(1) .timeline-icon { border:3px solid #8DC63F; color:#8DC63F; }
-.timeline-item:nth-child(2) .timeline-icon { border:3px solid #00CFFF; color:#00CFFF; }
-.timeline-item:nth-child(3) .timeline-icon { border:3px solid #3A8E3D; color:#3A8E3D; }
-.timeline-item:nth-child(4) .timeline-icon { border:3px solid #007ACC; color:#007ACC; }
-.timeline-item:nth-child(5) .timeline-icon { border:3px solid #1C2A5B; color:#1C2A5B; }
-.timeline-item:nth-child(6) .timeline-icon { border:3px solid #F24D29; color:#F24D29; }
-.timeline-item:nth-child(7) .timeline-icon { border:3px solid #6CC04A; color:#6CC04A; }
-.timeline-item:nth-child(8) .timeline-icon { border:3px solid #00CFFF; color:#00CFFF; }
 
 /* Position icons */
-.timeline-item:nth-child(odd) .timeline-icon { right: -22px; }
-.timeline-item:nth-child(even) .timeline-icon { left: -22px; }
-
-/* Timeline content */
+.timeline-item:nth-child(odd) .timeline-icon {
+  right: -22px;
+}
+.timeline-item:nth-child(even) .timeline-icon {
+  left: -22px;
+}
+/* Timeline content box */
 .timeline-content {
-  background: linear-gradient(135deg, #ffffff, #f9fbff);
+  background: linear-gradient(135deg, #ffffff, #f8fdf9);
   padding: 22px 28px;
   border-radius: 16px;
   border: 2px solid transparent;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  background-clip: padding-box, border-box;
+  background-origin: border-box;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
   display: inline-block;
   max-width: 400px;
   transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
 }
+
+/* Hover effect */
 .timeline-content:hover {
   transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
-  border-color: currentColor; /* match icon color */
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+  border-color: #0BA34E; /* green accent on hover */
 }
+
+/* Text link style */
 .timeline-content a {
   text-decoration: none;
   color: #222;
@@ -1778,22 +1859,44 @@ const services = [
   letter-spacing: 0.3px;
   transition: color 0.3s ease;
 }
-.timeline-content a:hover { color: currentColor; }
+
+.timeline-content a:hover {
+  color: #0BA34E;
+}
+
 
 /* Left/right spacing */
-.timeline-item:nth-child(odd) .timeline-content { margin-right: 70px; }
-.timeline-item:nth-child(even) .timeline-content { margin-left: 70px; }
+.timeline-item:nth-child(odd) .timeline-content {
+  margin-right: 70px;
+}
+.timeline-item:nth-child(even) .timeline-content {
+  margin-left: 70px;
+}
 
 /* Responsive */
 @media (max-width: 768px) {
-  .timeline::before { left: 20px; }
-  .timeline-item { width: 100%; padding: 20px 20px 20px 60px; }
-  .timeline-item:nth-child(even) { left: 0; text-align: left; }
-  .timeline-item:nth-child(odd) { text-align: left; }
-  .timeline-icon { left: 0 !important; right: auto !important; }
-  .timeline-content { margin: 0 0 0 60px !important; }
+  .timeline::before {
+    left: 20px;
+  }
+  .timeline-item {
+    width: 100%;
+    padding: 20px 20px 20px 60px;
+  }
+  .timeline-item:nth-child(even) {
+    left: 0;
+    text-align: left;
+  }
+  .timeline-item:nth-child(odd) {
+    text-align: left;
+  }
+  .timeline-icon {
+    left: 0 !important;
+    right: auto !important;
+  }
+  .timeline-content {
+    margin: 0 0 0 60px !important;
+  }
 }
-
 </style>
 
 <!-- Scroll Animation Script -->
@@ -1859,9 +1962,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 <!-- ============ FOOTER ============ -->
-
-
-<!-- ============ FOOTER ============ -->
 <footer id="footer" style="background: linear-gradient(135deg, #e8fdf3, #f7fff9, #d6fdea); color:#333; font-family:'Poppins', sans-serif; position:relative; overflow:hidden;">
 
   <!-- Decorative Overlay -->
@@ -1916,7 +2016,7 @@ document.addEventListener("DOMContentLoaded", () => {
   </div>
 
   <!-- Bottom Bar -->
-  <div style="text-align:center; padding:20px 20px; font-size:15px; color:#fff; background:linear-gradient(90deg,#6CC04A,#00CFFF,#3A8E3D); position:relative; z-index:1;">
+  <div style="text-align:center; padding:20px 20px; font-size:15px; color:#fff; background:linear-gradient(90deg,#0BA34E,#07d67a); position:relative; z-index:1;">
     © <script>document.write(new Date().getFullYear());</script> Aquagreen Tech Solutions. All Rights Reserved.<br>
     <span style="font-size:14px; color:#f1f1f1;">Developed By <strong>DW INNOVATION PVT. LTD.</strong></span>
   </div>
@@ -2010,6 +2110,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
-
-
-
